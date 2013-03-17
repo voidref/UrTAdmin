@@ -25,7 +25,6 @@
 
 	self.title = @"Servers";
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd 
 																							target: self 
 																							action: @selector(createNewServer:)];

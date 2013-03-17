@@ -12,21 +12,24 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
-		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 		2D00A125142A78BA005CA53F /* ServerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00A124142A78BA005CA53F /* ServerData.m */; };
 		2D5352F71417343A00731C42 /* ServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5352F61417343A00731C42 /* ServerConnection.m */; };
 		2D5352F91418012200731C42 /* ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5352F81418012200731C42 /* ServerViewController.m */; };
 		2D742AAB141C8EAA00787D61 /* EditServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D742AA9141C8EAA00787D61 /* EditServerViewController.m */; };
 		2D742AAC141C8EAA00787D61 /* EditServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D742AAA141C8EAA00787D61 /* EditServerViewController.xib */; };
-		2D742AAE141C905D00787D61 /* delete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D742AAD141C905D00787D61 /* delete_button.png */; };
-		2D94D7E011C4225C00E8DD6B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D94D7DF11C4225C00E8DD6B /* Icon.png */; };
-		2D94D83611C494DB00E8DD6B /* AddServer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D94D83511C494DB00E8DD6B /* AddServer.xib */; };
-		2D94D83F11C57D2F00E8DD6B /* AddServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D94D83E11C57D2F00E8DD6B /* AddServerController.m */; };
 		2D94D93711C59F2C00E8DD6B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D94D93611C59F2C00E8DD6B /* iAd.framework */; };
-		2DEF99DD16EFDCAA00E2162B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99DC16EFDCAA00E2162B /* Default-568h@2x.png */; };
 		2DEF99E016EFE4E900E2162B /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF99DF16EFE4E900E2162B /* AsyncUdpSocket.m */; };
+		2DEF99E316F1367A00E2162B /* AddServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF99E216F1367A00E2162B /* AddServerController.m */; };
+		2DEF99EC16F1369B00E2162B /* AddServer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99E416F1369B00E2162B /* AddServer.xib */; };
+		2DEF99ED16F1369B00E2162B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99E516F1369B00E2162B /* Default-568h@2x.png */; };
+		2DEF99EE16F1369B00E2162B /* delete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99E616F1369B00E2162B /* delete_button.png */; };
+		2DEF99EF16F1369B00E2162B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99E716F1369B00E2162B /* Icon.png */; };
+		2DEF99F016F1369B00E2162B /* iourbanterror.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99E816F1369B00E2162B /* iourbanterror.icns */; };
+		2DEF99F116F1369B00E2162B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99E916F1369B00E2162B /* MainWindow.xib */; };
+		2DEF99F216F1369B00E2162B /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99EA16F1369B00E2162B /* RootViewController.xib */; };
+		2DEF99F316F1369B00E2162B /* Unadorned.Orangered.small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99EB16F1369B00E2162B /* Unadorned.Orangered.small.png */; };
+		2DEF99F516F13B6500E2162B /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99F416F13B6500E2162B /* Storyboard.storyboard */; };
 		2DFD8DB31416035F0056FF0E /* ServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD8DB11416035F0056FF0E /* ServerViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -38,10 +41,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* UrTAdmin_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrTAdmin_Prefix.pch; sourceTree = "<group>"; };
-		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D00A123142A78BA005CA53F /* ServerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerData.h; sourceTree = "<group>"; };
 		2D00A124142A78BA005CA53F /* ServerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerData.m; sourceTree = "<group>"; };
@@ -51,15 +52,20 @@
 		2D742AA8141C8EAA00787D61 /* EditServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditServerViewController.h; sourceTree = "<group>"; };
 		2D742AA9141C8EAA00787D61 /* EditServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditServerViewController.m; sourceTree = "<group>"; };
 		2D742AAA141C8EAA00787D61 /* EditServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditServerViewController.xib; path = Classes/EditServerViewController.xib; sourceTree = "<group>"; };
-		2D742AAD141C905D00787D61 /* delete_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_button.png; sourceTree = "<group>"; };
-		2D94D7DF11C4225C00E8DD6B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		2D94D83511C494DB00E8DD6B /* AddServer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddServer.xib; sourceTree = "<group>"; };
-		2D94D83D11C57D2F00E8DD6B /* AddServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddServerController.h; path = ../AddServerController.h; sourceTree = "<group>"; };
-		2D94D83E11C57D2F00E8DD6B /* AddServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddServerController.m; path = ../AddServerController.m; sourceTree = "<group>"; };
 		2D94D93611C59F2C00E8DD6B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		2DEF99DC16EFDCAA00E2162B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2DEF99DE16EFE4E900E2162B /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = ../../../CocoaAsyncSocket/RunLoop/AsyncUdpSocket.h; sourceTree = "<group>"; };
 		2DEF99DF16EFE4E900E2162B /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncUdpSocket.m; path = ../../../CocoaAsyncSocket/RunLoop/AsyncUdpSocket.m; sourceTree = "<group>"; };
+		2DEF99E116F1367A00E2162B /* AddServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddServerController.h; sourceTree = "<group>"; };
+		2DEF99E216F1367A00E2162B /* AddServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddServerController.m; sourceTree = "<group>"; };
+		2DEF99E416F1369B00E2162B /* AddServer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddServer.xib; path = Resources/AddServer.xib; sourceTree = "<group>"; };
+		2DEF99E516F1369B00E2162B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
+		2DEF99E616F1369B00E2162B /* delete_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete_button.png; path = Resources/delete_button.png; sourceTree = "<group>"; };
+		2DEF99E716F1369B00E2162B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
+		2DEF99E816F1369B00E2162B /* iourbanterror.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = iourbanterror.icns; path = Resources/iourbanterror.icns; sourceTree = "<group>"; };
+		2DEF99E916F1369B00E2162B /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/MainWindow.xib; sourceTree = "<group>"; };
+		2DEF99EA16F1369B00E2162B /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = Resources/RootViewController.xib; sourceTree = "<group>"; };
+		2DEF99EB16F1369B00E2162B /* Unadorned.Orangered.small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Unadorned.Orangered.small.png; path = Resources/Unadorned.Orangered.small.png; sourceTree = "<group>"; };
+		2DEF99F416F13B6500E2162B /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Resources/Storyboard.storyboard; sourceTree = "<group>"; };
 		2DFD8DAF1416035F0056FF0E /* ServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerViewController.h; sourceTree = "<group>"; };
 		2DFD8DB11416035F0056FF0E /* ServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ServerViewController.xib; path = Classes/ServerViewController.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -91,8 +97,8 @@
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* UrTAdminAppDelegate.h */,
 				1D3623250D0F684500981E51 /* UrTAdminAppDelegate.m */,
-				2D94D83D11C57D2F00E8DD6B /* AddServerController.h */,
-				2D94D83E11C57D2F00E8DD6B /* AddServerController.m */,
+				2DEF99E116F1367A00E2162B /* AddServerController.h */,
+				2DEF99E216F1367A00E2162B /* AddServerController.m */,
 				2DFD8DAF1416035F0056FF0E /* ServerViewController.h */,
 				2D5352F81418012200731C42 /* ServerViewController.m */,
 				2D742AA8141C8EAA00787D61 /* EditServerViewController.h */,
@@ -135,14 +141,17 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2DEF99DC16EFDCAA00E2162B /* Default-568h@2x.png */,
-				2D742AAD141C905D00787D61 /* delete_button.png */,
+				2DEF99F416F13B6500E2162B /* Storyboard.storyboard */,
+				2DEF99E416F1369B00E2162B /* AddServer.xib */,
+				2DEF99E516F1369B00E2162B /* Default-568h@2x.png */,
+				2DEF99E616F1369B00E2162B /* delete_button.png */,
+				2DEF99E716F1369B00E2162B /* Icon.png */,
+				2DEF99E816F1369B00E2162B /* iourbanterror.icns */,
+				2DEF99E916F1369B00E2162B /* MainWindow.xib */,
+				2DEF99EA16F1369B00E2162B /* RootViewController.xib */,
+				2DEF99EB16F1369B00E2162B /* Unadorned.Orangered.small.png */,
 				2D742AAA141C8EAA00787D61 /* EditServerViewController.xib */,
 				2DFD8DB11416035F0056FF0E /* ServerViewController.xib */,
-				2D94D7DF11C4225C00E8DD6B /* Icon.png */,
-				28F335F01007B36200424DE2 /* RootViewController.xib */,
-				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
-				2D94D83511C494DB00E8DD6B /* AddServer.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 			);
 			name = Resources;
@@ -213,14 +222,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
-				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
-				2D94D7E011C4225C00E8DD6B /* Icon.png in Resources */,
-				2D94D83611C494DB00E8DD6B /* AddServer.xib in Resources */,
 				2DFD8DB31416035F0056FF0E /* ServerViewController.xib in Resources */,
 				2D742AAC141C8EAA00787D61 /* EditServerViewController.xib in Resources */,
-				2D742AAE141C905D00787D61 /* delete_button.png in Resources */,
-				2DEF99DD16EFDCAA00E2162B /* Default-568h@2x.png in Resources */,
+				2DEF99EC16F1369B00E2162B /* AddServer.xib in Resources */,
+				2DEF99ED16F1369B00E2162B /* Default-568h@2x.png in Resources */,
+				2DEF99EE16F1369B00E2162B /* delete_button.png in Resources */,
+				2DEF99EF16F1369B00E2162B /* Icon.png in Resources */,
+				2DEF99F016F1369B00E2162B /* iourbanterror.icns in Resources */,
+				2DEF99F116F1369B00E2162B /* MainWindow.xib in Resources */,
+				2DEF99F216F1369B00E2162B /* RootViewController.xib in Resources */,
+				2DEF99F316F1369B00E2162B /* Unadorned.Orangered.small.png in Resources */,
+				2DEF99F516F13B6500E2162B /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,12 +246,12 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* UrTAdminAppDelegate.m in Sources */,
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
-				2D94D83F11C57D2F00E8DD6B /* AddServerController.m in Sources */,
 				2D5352F71417343A00731C42 /* ServerConnection.m in Sources */,
 				2D5352F91418012200731C42 /* ServerViewController.m in Sources */,
 				2D742AAB141C8EAA00787D61 /* EditServerViewController.m in Sources */,
 				2D00A125142A78BA005CA53F /* ServerData.m in Sources */,
 				2DEF99E016EFE4E900E2162B /* AsyncUdpSocket.m in Sources */,
+				2DEF99E316F1367A00E2162B /* AddServerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

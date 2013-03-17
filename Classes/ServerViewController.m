@@ -53,7 +53,7 @@
 {
     [super viewDidLoad];    
     
-    [self setEditingButtonState:NO];
+//    [self setEditingButtonState:NO];
 }
 
 - (void)viewDidUnload

@@ -6,6 +6,9 @@
 //  Copyright (c) 2011 Rockwood Software. All rights reserved.
 //
 
+
+// TODO: use CoreData instead of UserDefaults
+
 #import "ServerData.h"
 
 @implementation ServerData

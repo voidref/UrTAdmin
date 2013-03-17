@@ -156,7 +156,7 @@ static const char* skPrefix = "\xff\xff\xff\xff";
     
     NSString* response = [[NSString alloc] initWithBytes: ([data_ subdataWithRange:range].bytes)
                                                   length: range.length
-                                                encoding: NSASCIIStringEncoding];
+                                                encoding: NSUTF8StringEncoding];
     
     // Eventually put a switch statement in here using the tag to process the responses appropriately
     
