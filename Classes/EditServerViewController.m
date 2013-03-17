@@ -69,8 +69,6 @@
 	NSArray* data = [defs stringArrayForKey: key];
 	NSLog(@"Server %d", self.serverIndex);
     
-	self.title = @"Edit Server";
-    
     serverName.text = [NSString stringWithFormat:@"%@", [data objectAtIndex:0]];
     serverIP.text = [NSString stringWithFormat:@"%@", [data objectAtIndex:1]];
     serverPort.text = [NSString stringWithFormat:@"%@", [data objectAtIndex:2]];
