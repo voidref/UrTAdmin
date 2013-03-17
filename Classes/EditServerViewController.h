@@ -32,14 +32,15 @@
 @property (assign)          uint32_t        serverIndex;
 @property (weak)            id              delegate;
 
-- (IBAction) deleteServer: (id)sender;
-- (IBAction) confirmChanges: (id)sender;
+- (IBAction) deleteServer:      (id)sender;
+- (IBAction) confirmChanges:    (id)sender;
+- (IBAction) cancel:            (id)sender;
 
 @end
 
 
 @protocol EditServerViewControllerDelegate <NSObject>
 
-- (void) stopEditing: (BOOL) deleted;
+- (void) stopEditing;
 
 @end 

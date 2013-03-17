@@ -6,6 +6,8 @@
 //  Copyright (c) 2011 Rockwood Software. All rights reserved.
 //
 
+// TODO: Change from hokey singleton
+
 #import <Foundation/Foundation.h>
 
 @interface ServerData : NSObject

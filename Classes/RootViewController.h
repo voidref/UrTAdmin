@@ -10,12 +10,15 @@
 
 @class AddServerController;
 @class ServerViewController;
+@class EditServerViewController;
 
-@interface RootViewController : UITableViewController <UINavigationControllerDelegate> {
-	AddServerController*	addServer;
-	int						serverCount;
+@interface RootViewController : UITableViewController <UINavigationControllerDelegate>
+{
+	AddServerController*        addServer;
+	int                         serverCount;
     
-    ServerViewController*   current;
+    ServerViewController*       current;
+    EditServerViewController*   editor;
 }
 
 @property (nonatomic) ServerViewController* current;

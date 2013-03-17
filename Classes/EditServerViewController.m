@@ -105,7 +105,7 @@
 {
     [ServerData deleteServerAtIndex: self.serverIndex];
 
-    [delegate stopEditing:YES];
+    [delegate stopEditing];
 }
 
 
@@ -121,7 +121,12 @@
     [ServerData setServerData: data 
                       atIndex: self.serverIndex];
     
-    [delegate stopEditing:NO];    
+    [delegate stopEditing];    
+}
+
+- (IBAction) cancel:(id)sender
+{
+    [delegate stopEditing];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "AddServerController.h"
+#import "EditServerViewController.h"
 #import "ServerViewController.h"
 #import "ServerData.h"
 
@@ -81,6 +82,23 @@
 }
  */
 
+- (void) startEditing: (NSInteger) index_
+{
+    editor = [[EditServerViewController alloc ] initWithNibName: @"EditServerViewController"
+                                                         bundle: [NSBundle mainBundle]];
+    editor.delegate = self;
+    editor.serverIndex = index_;
+    [self presentViewController: editor
+                       animated: YES
+                     completion: nil];
+    
+}
+
+- (void) stopEditing
+{
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
+}
 
 #pragma mark -
 #pragma mark Table view data source
@@ -116,6 +134,7 @@
 	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 	cell.textLabel.text = [data objectAtIndex:0];
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [data objectAtIndex:1]];
+
 		
     return cell;
 }
@@ -175,6 +194,11 @@
     
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:current animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self startEditing: indexPath.row + 1];
 }
 
 #pragma mark -
