@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="lNM-T6-Tpu" detailTextLabel="cJt-vc-kII" style="IBUITableViewCellStyleSubtitle" id="hTY-qP-Kr8">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServerCell" textLabel="lNM-T6-Tpu" detailTextLabel="cJt-vc-kII" style="IBUITableViewCellStyleSubtitle" id="hTY-qP-Kr8">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -50,7 +50,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4s-02-f84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664" y="237"/>
+            <point key="canvasLocation" x="104" y="275"/>
         </scene>
         <!--Table View Controller - Server Name-->
         <scene sceneID="sZO-yP-job">
@@ -172,12 +172,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Server Name" id="yh1-mg-uTd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r1b-zv-bJZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r1b-zv-bJZ">
+                            <connections>
+                                <segue destination="wDM-d0-4Qc" kind="modal" id="PuE-TX-OTn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxd-Ag-Ee0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="225"/>
+            <point key="canvasLocation" x="711" y="275"/>
         </scene>
         <!--Add Server Controller-->
         <scene sceneID="GQt-tw-M31">
@@ -187,7 +191,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="top" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="soO-Kx-sIW" userLabel="CancelDoneBar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="soO-Kx-sIW" userLabel="CancelDoneBar">
                                 <items>
                                     <barButtonItem title="Cancel" id="pkr-1T-k0z" userLabel="CancelNewServer">
                                         <connections>
@@ -195,7 +199,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kiy-ce-mDW"/>
-                                    <barButtonItem enabled="NO" title="Commit" id="OdG-d2-h9E" userLabel="DoneNewServer"/>
+                                    <barButtonItem enabled="NO" title="Done" id="OdG-d2-h9E" userLabel="DoneNewServer"/>
                                 </items>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="New Server" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="mwA-Jh-6aX" userLabel="NewServerTitle">
@@ -208,6 +212,10 @@
                                 <accessibility key="accessibilityConfiguration" label="add photo">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="KoQ-hS-1gr"/>
+                                    <constraint firstAttribute="width" constant="18" id="PrE-QR-hTx"/>
+                                </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Server Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pwv-qh-bcb" userLabel="ServerNameEdit">
                                 <accessibility key="accessibilityConfiguration" label="Server"/>
@@ -225,19 +233,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="6Wx-P7-Qui">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Wx-P7-Qui">
                                 <accessibility key="accessibilityConfiguration" label="add photo"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="66" id="Py5-0P-Ybv"/>
-                                    <constraint firstAttribute="height" constant="66" id="g4d-Hp-o5h"/>
+                                    <constraint firstAttribute="height" constant="58" id="9DI-5C-DVL"/>
+                                    <constraint firstAttribute="width" constant="51" id="PrG-Vp-ppL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <state key="normal" title="add photo">
-                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="add photo">
+                                            <attributes>
+                                                <color key="NSColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="13" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="27960" borderStyle="roundedRect" placeholder="Port" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D2W-1g-KYt" userLabel="PortEdit">
@@ -264,24 +276,22 @@
                             <constraint firstItem="pwv-qh-bcb" firstAttribute="top" secondItem="M0R-YM-XRt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="93z-nC-Qfz"/>
                             <constraint firstItem="mwA-Jh-6aX" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" constant="113" id="AZU-E5-r0Z"/>
                             <constraint firstItem="D2W-1g-KYt" firstAttribute="leading" secondItem="M0R-YM-XRt" secondAttribute="leading" type="default" id="C91-D4-Zxr"/>
+                            <constraint firstItem="6Wx-P7-Qui" firstAttribute="top" secondItem="d9L-YX-jYm" secondAttribute="top" type="default" id="HHz-XO-G0w"/>
                             <constraint firstAttribute="trailing" secondItem="d9L-YX-jYm" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="KLg-rV-biB"/>
                             <constraint firstAttribute="trailing" secondItem="pwv-qh-bcb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LbL-Ff-VxD"/>
-                            <constraint firstItem="6Wx-P7-Qui" firstAttribute="centerY" secondItem="faj-Qg-AWe" secondAttribute="centerY" type="default" id="LdY-VD-Mcd"/>
                             <constraint firstItem="6Wx-P7-Qui" firstAttribute="top" secondItem="faj-Qg-AWe" secondAttribute="top" type="default" id="Ogz-Rt-7kF"/>
-                            <constraint firstItem="d9L-YX-jYm" firstAttribute="top" secondItem="faj-Qg-AWe" secondAttribute="top" type="default" id="PBS-Us-4GG"/>
                             <constraint firstItem="soO-Kx-sIW" firstAttribute="top" secondItem="HlA-OR-Zf7" secondAttribute="top" type="default" id="VOs-yG-R3x"/>
                             <constraint firstItem="mwA-Jh-6aX" firstAttribute="centerY" secondItem="soO-Kx-sIW" secondAttribute="centerY" type="default" id="Vkw-9z-Whu"/>
                             <constraint firstItem="soO-Kx-sIW" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" type="default" id="Zxg-Ie-l7z"/>
                             <constraint firstItem="D2W-1g-KYt" firstAttribute="top" secondItem="d9L-YX-jYm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bo2-VJ-V88"/>
-                            <constraint firstItem="faj-Qg-AWe" firstAttribute="trailing" secondItem="6Wx-P7-Qui" secondAttribute="trailing" type="default" id="bt2-Zm-2rL"/>
                             <constraint firstAttribute="trailing" secondItem="eTf-4V-Q8r" secondAttribute="trailing" constant="26" id="bvJ-Gg-CdN"/>
                             <constraint firstItem="6Wx-P7-Qui" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cBi-QK-ZJu"/>
                             <constraint firstItem="M0R-YM-XRt" firstAttribute="top" secondItem="D2W-1g-KYt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="eWt-Ep-EJX"/>
                             <constraint firstAttribute="trailing" secondItem="M0R-YM-XRt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="emd-JD-e39"/>
                             <constraint firstItem="faj-Qg-AWe" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="esd-HK-Px6"/>
-                            <constraint firstItem="6Wx-P7-Qui" firstAttribute="top" secondItem="HlA-OR-Zf7" secondAttribute="top" constant="66" id="gFW-GE-Gx1"/>
                             <constraint firstItem="pwv-qh-bcb" firstAttribute="leading" secondItem="M0R-YM-XRt" secondAttribute="leading" type="default" id="hzQ-Jv-k5N"/>
                             <constraint firstItem="D2W-1g-KYt" firstAttribute="leading" secondItem="d9L-YX-jYm" secondAttribute="leading" type="default" id="tWd-2l-dRi"/>
+                            <constraint firstItem="faj-Qg-AWe" firstAttribute="top" secondItem="HlA-OR-Zf7" secondAttribute="top" constant="66" id="yRm-dQ-NU9"/>
                         </constraints>
                         <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     </view>
@@ -296,21 +306,132 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALD-8Y-oEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1265" y="-567"/>
+            <point key="canvasLocation" x="711" y="-529"/>
         </scene>
         <!--Edit Server View Controller-->
         <scene sceneID="YmO-QE-LGP">
             <objects>
                 <viewController id="wDM-d0-4Qc" customClass="EditServerViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fB4-Iv-Rus" customClass="edit">
+                    <view key="view" contentMode="scaleToFill" id="eFM-uu-yjf">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="top" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="2R2-ud-LUR" userLabel="CancelDoneBar">
+                                <items>
+                                    <barButtonItem title="Cancel" id="P7Y-jl-MC5" userLabel="CancelNewServer"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="X9e-t1-aOV"/>
+                                    <barButtonItem title="Commit" id="BzJ-LY-ssk" userLabel="DoneNewServer"/>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Edit Server" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cag-TF-0kt" userLabel="NewServerTitle">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="eqc-40-vfd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.27368341610000002" green="0.40381915889999997" blue="0.52717391300000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xab-Ec-SXE" userLabel="AddServerPhoto">
+                                <accessibility key="accessibilityConfiguration" label="add photo">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Server Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WRP-fm-iHA" userLabel="ServerNameEdit">
+                                <accessibility key="accessibilityConfiguration" label="Server"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="WqQ-vC-Ifn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IP Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vPF-YE-XyA" userLabel="IPAddressEdit">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="IvX-NM-CKS"/>
+                                    <constraint firstAttribute="width" constant="197" id="fQq-1K-bNd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0Ec-33-uLB">
+                                <accessibility key="accessibilityConfiguration" label="add photo"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="dNM-Eu-9vP"/>
+                                    <constraint firstAttribute="width" constant="66" id="w65-L0-R2N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="change photo">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="27960" borderStyle="roundedRect" placeholder="Port" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hn5-wX-hgP" userLabel="PortEdit">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Q57-ZM-S5B"/>
+                                    <constraint firstAttribute="height" constant="31" id="oAN-eg-sML"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yp7-gZ-YS4">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="xwu-Oz-ej0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17R-VP-hcZ">
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="2Hw-c4-3OY"/>
+                                    <constraint firstAttribute="width" constant="281" id="tQ8-Tc-B5D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="Delete Server">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2R2-ud-LUR" firstAttribute="top" secondItem="eFM-uu-yjf" secondAttribute="top" type="default" id="89q-ip-QhL"/>
+                            <constraint firstItem="2R2-ud-LUR" firstAttribute="trailing" secondItem="eFM-uu-yjf" secondAttribute="trailing" type="default" id="8uc-pc-r6h"/>
+                            <constraint firstItem="2R2-ud-LUR" firstAttribute="centerY" secondItem="Cag-TF-0kt" secondAttribute="centerY" type="default" id="9U9-1f-iGy"/>
+                            <constraint firstItem="Xab-Ec-SXE" firstAttribute="leading" secondItem="eFM-uu-yjf" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="BUf-hP-9v7"/>
+                            <constraint firstItem="0Ec-33-uLB" firstAttribute="top" secondItem="eFM-uu-yjf" secondAttribute="top" constant="66" id="IFR-td-p5i"/>
+                            <constraint firstItem="yp7-gZ-YS4" firstAttribute="leading" secondItem="WRP-fm-iHA" secondAttribute="leading" type="default" id="Io6-y8-7Ga"/>
+                            <constraint firstItem="17R-VP-hcZ" firstAttribute="centerX" secondItem="Cag-TF-0kt" secondAttribute="centerX" type="default" id="LnE-TF-pUf"/>
+                            <constraint firstItem="Xab-Ec-SXE" firstAttribute="trailing" secondItem="0Ec-33-uLB" secondAttribute="trailing" type="default" id="QXF-G7-SPC"/>
+                            <constraint firstItem="0Ec-33-uLB" firstAttribute="leading" secondItem="eFM-uu-yjf" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="RVV-px-W6F"/>
+                            <constraint firstItem="Xab-Ec-SXE" firstAttribute="centerY" secondItem="0Ec-33-uLB" secondAttribute="centerY" type="default" id="TTu-Qc-VYm"/>
+                            <constraint firstItem="yp7-gZ-YS4" firstAttribute="top" secondItem="hn5-wX-hgP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UMD-Qv-0ev"/>
+                            <constraint firstItem="WRP-fm-iHA" firstAttribute="top" secondItem="yp7-gZ-YS4" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ZcN-Fv-1cR"/>
+                            <constraint firstItem="hn5-wX-hgP" firstAttribute="leading" secondItem="yp7-gZ-YS4" secondAttribute="leading" type="default" id="ajU-Eg-J0j"/>
+                            <constraint firstAttribute="bottom" secondItem="17R-VP-hcZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="eF5-dl-jvq"/>
+                            <constraint firstItem="vPF-YE-XyA" firstAttribute="leading" secondItem="hn5-wX-hgP" secondAttribute="leading" type="default" id="fRZ-DE-T7Z"/>
+                            <constraint firstAttribute="trailing" secondItem="vPF-YE-XyA" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gAQ-71-uVp"/>
+                            <constraint firstAttribute="trailing" secondItem="17R-VP-hcZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="k2V-nf-UuE"/>
+                            <constraint firstAttribute="trailing" secondItem="WRP-fm-iHA" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="mmT-Z1-6uT"/>
+                            <constraint firstItem="vPF-YE-XyA" firstAttribute="top" secondItem="Xab-Ec-SXE" secondAttribute="top" type="default" id="rft-mx-JBO"/>
+                            <constraint firstAttribute="trailing" secondItem="yp7-gZ-YS4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="rvw-va-OLd"/>
+                            <constraint firstItem="hn5-wX-hgP" firstAttribute="top" secondItem="vPF-YE-XyA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sdn-8S-Wjh"/>
+                            <constraint firstItem="Xab-Ec-SXE" firstAttribute="top" secondItem="0Ec-33-uLB" secondAttribute="top" type="default" id="thP-Um-co3"/>
+                            <constraint firstItem="2R2-ud-LUR" firstAttribute="leading" secondItem="eFM-uu-yjf" secondAttribute="leading" type="default" id="wEk-f7-lYb"/>
+                        </constraints>
+                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amv-kv-qUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1751" y="225"/>
+            <point key="canvasLocation" x="1191" y="275"/>
         </scene>
         <!--Server View Controller-->
         <scene sceneID="3EI-y7-7hT">
@@ -373,7 +494,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Fh-8S-Eof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279" y="970"/>
+            <point key="canvasLocation" x="711" y="1008"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yWm-lR-Skj">
@@ -388,7 +509,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZe-BW-aeE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="225"/>
+            <point key="canvasLocation" x="-514" y="275"/>
         </scene>
     </scenes>
     <classes>
