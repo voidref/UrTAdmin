@@ -6,22 +6,18 @@
 //  Copyright 2011 Voidref Software. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 #import "ServerConnection.h"
 #import "EditServerViewController.h"
 
-@interface ServerViewController : UIViewController <ServerConnectionDelegate, UITableViewDataSource, EditServerViewControllerDelegate> 
+@interface ServerViewController : UITableViewController <ServerConnectionDelegate, UITableViewDataSource>
 {
-    UILabel*                    __weak mapName;
-    UITableView*                __weak playerList;
+    NSString*                   _mapName;
     ServerConnection*           conn;
     EditServerViewController*   editor;
     uint32_t                    serverIndex;
 }
 
 @property (weak) IBOutlet     UILabel*            mapName;
-@property (weak) IBOutlet     UITableView*        playerList;
 @property (nonatomic, strong)   ServerConnection*   conn;
 
 - (void) dealloc;

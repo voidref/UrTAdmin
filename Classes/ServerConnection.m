@@ -160,7 +160,7 @@ static const char* skPrefix = "\xff\xff\xff\xff";
     
     // Eventually put a switch statement in here using the tag to process the responses appropriately
     
-    NSLog(@"Response: %@\n\n", response);
+//    NSLog(@"Response: %@\n\n", response);
     
     NSArray* parts = [response componentsSeparatedByString:@"\n"];
     
@@ -179,7 +179,7 @@ static const char* skPrefix = "\xff\xff\xff\xff";
         self.players = nil;
     }
     
-    NSLog(@"players:\n%@", players);
+//    NSLog(@"players:\n%@", players);
     
     if ([delegate respondsToSelector:@selector(serverDataAvailable)])
     {

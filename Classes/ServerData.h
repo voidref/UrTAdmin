@@ -8,8 +8,6 @@
 
 // TODO: Change from hokey singleton
 
-#import <Foundation/Foundation.h>
-
 @interface ServerData : NSObject
 
 + (uint32_t) serverCount;

@@ -88,13 +88,13 @@
 }
 
 // ------------------------------------------------------------------------------------------------
-- (IBAction) cancelAdd
+- (IBAction) cancelAdd: (id) sender_
 {
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // ------------------------------------------------------------------------------------------------
-- (IBAction) confirmAdd
+- (IBAction) confirmAdd: (id) sender_
 {
     [conn close];
     conn = nil;

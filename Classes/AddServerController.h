@@ -6,7 +6,6 @@
 //  Copyright 2010 Rockwood Software. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "ServerConnection.h"
 
 @interface AddServerController : UIViewController <UITextFieldDelegate, ServerConnectionDelegate> 
@@ -21,8 +20,8 @@
     __weak IBOutlet UIActivityIndicatorView*    serverNameSpinner;
 }
 
-- (IBAction) cancelAdd;
-- (IBAction) confirmAdd;
+- (IBAction) cancelAdd: (id) sender_;
+- (IBAction) confirmAdd: (id) sender_;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
 - (void)textFieldDidEndEditing:(UITextField *)textField;

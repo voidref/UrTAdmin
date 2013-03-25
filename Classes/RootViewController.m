@@ -24,15 +24,15 @@
 {
     [super viewDidLoad];
 
-	self.title = @"Servers";
+//	self.title = @"Servers";
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd 
-																							target: self 
-																							action: @selector(createNewServer:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd 
+//																							target: self 
+//																							action: @selector(createNewServer:)];
 		
 	serverCount = [ServerData serverCount];
     
-    self.navigationController.delegate = self;
+//    self.navigationController.delegate = self;
 }
 	
 
@@ -55,10 +55,10 @@
 	
 	serverCount = [ServerData serverCount];
     
-	if (0 == serverCount) 
-	{
-		[self createNewServer:nil];
-	} 
+//	if (0 == serverCount) 
+//	{
+//		[self createNewServer:nil];
+//	} 
 
     [self.tableView reloadData];
 }
@@ -88,9 +88,10 @@
                                                          bundle: [NSBundle mainBundle]];
     editor.delegate = self;
     editor.serverIndex = index_;
-    [self presentViewController: editor
-                       animated: YES
-                     completion: nil];
+    [self.navigationController pushViewController:editor animated:YES];
+//    [self presentViewController: editor
+//                       animated: YES
+//                     completion: nil];
     
 }
 
@@ -123,15 +124,17 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) 
+
+    if (cell == nil)
 	{
+        NSLog(@"** Error: This should not happen, your xib is busted");
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     
 	// Configure the cell.
 	NSArray* data = [ServerData getServerDataAtIndex:indexPath.row + 1];
 
-	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 	cell.textLabel.text = [data objectAtIndex:0];
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [data objectAtIndex:1]];
 
@@ -187,29 +190,42 @@
 {
     NSLog(@"%s: %@", __PRETTY_FUNCTION__, indexPath);
     
-    current = [[ServerViewController alloc] initWithNibName:@"ServerViewController" bundle:nil];
+//    current = [[ServerViewController alloc] initWithNibName:@"ServerViewController" bundle:nil];
     
     // Server Indexes are 1 based (possibly because I am crazy)
-    [current setIndex:indexPath.row + 1];
+//    [current setIndex:indexPath.row + 1];
     
     // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:current animated:YES];
+//    [self.navigationController pushViewController:current animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    [self startEditing: indexPath.row + 1];
+//    [self startEditing: indexPath.row + 1];
 }
 
 #pragma mark -
 #pragma mark Navigation Controller delegate
 
 - (void)navigationController:(UINavigationController *)navigationController 
-      willShowViewController:(UIViewController *)viewController animated:(BOOL)animated 
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated
 {
     if (viewController == self) 
     {
         [current reset];
+    }
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue_
+                  sender:(id)sender_
+{
+    if ([segue_.identifier isEqualToString: @"ServerView"])
+    {
+        ServerViewController* controller = (ServerViewController*)[segue_ destinationViewController];
+        
+        // TODO: I need to change over to 0 based indexes for the servers
+        controller.index = [self.tableView indexPathForSelectedRow].row + 1;
     }
 }
 

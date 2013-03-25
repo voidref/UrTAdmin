@@ -13,7 +13,6 @@
 @implementation ServerViewController
 
 @synthesize mapName;
-@synthesize playerList;
 @synthesize conn;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -60,7 +59,6 @@
 {
     [self reset];
     self.mapName = nil;
-    self.playerList = nil;
         
     [super viewDidUnload];
 }
@@ -100,9 +98,9 @@
         map = @"<between maps>";
     }
 
-    self.mapName.text = map;
+    _mapName = map;
     
-    [playerList reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Editing modes
@@ -160,39 +158,80 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
 {
-    return 1;
+    return 2;
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return conn.players.count;
+    NSInteger result = 0;
+
+    switch (section)
+    {
+        case 0:
+            result = 1;
+            break;
+            
+        case 1:
+            result = conn.players.count;
+            break;
+    }
+    
+    return result;
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    static NSString *CellIdentifier = @"PlayerCell";
+    static NSString* playerCellIdentifier   = @"PlayerCell";
+    static NSString* mapCellIdentifier      = @"MapCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSString* cellId = playerCellIdentifier;
+    NSString* label  = nil;
+    NSString* detail = nil;
+    
+    if (0 == indexPath.section)
+    {
+        cellId = mapCellIdentifier;
+        label  = @"Map";
+        detail = _mapName;
+    }
+    else
+    {
+        label = [conn getPlayerAtrib:paName
+                               index:indexPath.row];
+        
+        detail = [conn getPlayerAtrib:paScore
+                                index:indexPath.row];
+    }
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
 
     if (cell == nil) 
 	{
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        NSLog(@" ** Error: should not get here, xib is busticated");
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
     }
     
-	// Configure the cell.    
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-               
-	cell.textLabel.text = [conn getPlayerAtrib:paName
-                                         index:indexPath.row];
-    
-	cell.detailTextLabel.text = [conn getPlayerAtrib:paScore
-                                               index:indexPath.row];
+	cell.textLabel.text         = label;
+	cell.detailTextLabel.text   = detail;
 	
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString* result = nil;
+    
+    if (1 == section)
+    {
+        result = @"Players";
+    }
+    
+    return result;
 }
 
 @end

@@ -6,8 +6,6 @@
 //  Copyright Rockwood Software 2010. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @class AddServerController;
 @class ServerViewController;
 @class EditServerViewController;

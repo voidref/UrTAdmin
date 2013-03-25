@@ -28,9 +28,7 @@
 		2DEF99EF16F1369B00E2162B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99E716F1369B00E2162B /* Icon.png */; };
 		2DEF99F016F1369B00E2162B /* iourbanterror.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99E816F1369B00E2162B /* iourbanterror.icns */; };
 		2DEF99F116F1369B00E2162B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99E916F1369B00E2162B /* MainWindow.xib */; };
-		2DEF99F216F1369B00E2162B /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99EA16F1369B00E2162B /* RootViewController.xib */; };
 		2DEF99F316F1369B00E2162B /* Unadorned.Orangered.small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF99EB16F1369B00E2162B /* Unadorned.Orangered.small.png */; };
-		2DFD8DB31416035F0056FF0E /* ServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD8DB11416035F0056FF0E /* ServerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,10 +62,8 @@
 		2DEF99E716F1369B00E2162B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		2DEF99E816F1369B00E2162B /* iourbanterror.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = iourbanterror.icns; path = Resources/iourbanterror.icns; sourceTree = "<group>"; };
 		2DEF99E916F1369B00E2162B /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/MainWindow.xib; sourceTree = "<group>"; };
-		2DEF99EA16F1369B00E2162B /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = Resources/RootViewController.xib; sourceTree = "<group>"; };
 		2DEF99EB16F1369B00E2162B /* Unadorned.Orangered.small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Unadorned.Orangered.small.png; path = Resources/Unadorned.Orangered.small.png; sourceTree = "<group>"; };
 		2DFD8DAF1416035F0056FF0E /* ServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerViewController.h; sourceTree = "<group>"; };
-		2DFD8DB11416035F0056FF0E /* ServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ServerViewController.xib; path = Classes/ServerViewController.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,10 +144,8 @@
 				2DEF99E716F1369B00E2162B /* Icon.png */,
 				2DEF99E816F1369B00E2162B /* iourbanterror.icns */,
 				2DEF99E916F1369B00E2162B /* MainWindow.xib */,
-				2DEF99EA16F1369B00E2162B /* RootViewController.xib */,
 				2DEF99EB16F1369B00E2162B /* Unadorned.Orangered.small.png */,
 				2D742AAA141C8EAA00787D61 /* EditServerViewController.xib */,
-				2DFD8DB11416035F0056FF0E /* ServerViewController.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 			);
 			name = Resources;
@@ -222,7 +216,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DFD8DB31416035F0056FF0E /* ServerViewController.xib in Resources */,
 				2D742AAC141C8EAA00787D61 /* EditServerViewController.xib in Resources */,
 				2DEF99EC16F1369B00E2162B /* AddServer.xib in Resources */,
 				2DEF99ED16F1369B00E2162B /* Default-568h@2x.png in Resources */,
@@ -230,7 +223,6 @@
 				2DEF99EF16F1369B00E2162B /* Icon.png in Resources */,
 				2DEF99F016F1369B00E2162B /* iourbanterror.icns in Resources */,
 				2DEF99F116F1369B00E2162B /* MainWindow.xib in Resources */,
-				2DEF99F216F1369B00E2162B /* RootViewController.xib in Resources */,
 				2DEF99F316F1369B00E2162B /* Unadorned.Orangered.small.png in Resources */,
 				2DB96D3B16FEC87D0031D0FF /* Storyboard.storyboard in Resources */,
 			);
