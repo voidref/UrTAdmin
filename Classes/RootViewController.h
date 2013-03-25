@@ -13,7 +13,6 @@
 @interface RootViewController : UITableViewController <UINavigationControllerDelegate>
 {
 	AddServerController*        addServer;
-	int                         serverCount;
     
     ServerViewController*       current;
     EditServerViewController*   editor;

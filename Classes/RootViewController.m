@@ -23,16 +23,6 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-
-//	self.title = @"Servers";
-    
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd 
-//																							target: self 
-//																							action: @selector(createNewServer:)];
-		
-	serverCount = [ServerData serverCount];
-    
-//    self.navigationController.delegate = self;
 }
 	
 
@@ -53,8 +43,7 @@
 {
     [super viewDidAppear:animated];
 	
-	serverCount = [ServerData serverCount];
-    
+    // TODO: Add "no servers, press '+' above to add one" screen.
 //	if (0 == serverCount) 
 //	{
 //		[self createNewServer:nil];
@@ -88,11 +77,7 @@
                                                          bundle: [NSBundle mainBundle]];
     editor.delegate = self;
     editor.serverIndex = index_;
-    [self.navigationController pushViewController:editor animated:YES];
-//    [self presentViewController: editor
-//                       animated: YES
-//                     completion: nil];
-    
+    [self.navigationController pushViewController:editor animated:YES];    
 }
 
 - (void) stopEditing
@@ -114,14 +99,14 @@
 - (NSInteger)tableView: (UITableView *)tableView 
  numberOfRowsInSection: (NSInteger)    section 
 {
-    return serverCount;
+    return [ServerData serverCount];
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ServerCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
