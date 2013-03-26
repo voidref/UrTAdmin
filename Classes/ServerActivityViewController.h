@@ -3,7 +3,7 @@
 //  UrTAdmin
 //
 //  Created by Alan Westbrook on 9/6/11.
-//  Copyright 2011 Voidref Software. All rights reserved.
+//  Copyright 2011 Rockwood Software. All rights reserved.
 //
 
 #import "ServerConnection.h"

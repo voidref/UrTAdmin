@@ -3,7 +3,7 @@
 //  UrTAdmin
 //
 //  Created by Alan Westbrook on 9/10/11.
-//  Copyright (c) 2011 Voidref Software. All rights reserved.
+//  Copyright (c) 2011 Rockwood Software. All rights reserved.
 //
 
 #import "EditServerViewController.h"
