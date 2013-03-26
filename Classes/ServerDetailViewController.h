@@ -9,6 +9,10 @@
 #import "ServerViewController.h"
 @interface ServerDetailViewController : UITableViewController<ServerViewController>
 
-@property (assign) NSInteger serverIndex;
+@property (assign, nonatomic)            NSInteger serverIndex;
+@property (weak)                IBOutlet UILabel*  name;
+@property (weak)                IBOutlet UILabel*  address;
+@property (weak)                IBOutlet UILabel*  port;
+@property (weak)                IBOutlet UILabel*  password;
 
 @end

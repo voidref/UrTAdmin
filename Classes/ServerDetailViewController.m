@@ -29,6 +29,14 @@
 {
     [super viewDidLoad];
 
+    NSArray* data = [ServerData getServerDataAtIndex: _serverIndex];
+    
+    // TODO: Really, change to using CoreData, these literals suck.
+    self.name.text       = data[0];
+    self.address.text    = data[1];
+    self.port.text       = data[2];
+    self.password.text   = data[3];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -41,6 +49,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Data
 
 #pragma mark - Table view data source
 
@@ -105,6 +115,8 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+# pragma mark - Navigation
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue_ sender:(id)sender_
 {

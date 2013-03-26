@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="104" y="275"/>
         </scene>
-        <!--Server Detail View Controller - Server Name-->
+        <!--Server Detail View Controller - Server Detail-->
         <scene sceneID="sZO-yP-job">
             <objects>
                 <tableViewController id="Fz0-VY-Wyw" customClass="ServerDetailViewController" sceneMemberID="viewController">
@@ -171,13 +171,19 @@
                             <outlet property="delegate" destination="Fz0-VY-Wyw" id="KrR-TK-p8t"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Server Name" id="yh1-mg-uTd">
+                    <navigationItem key="navigationItem" title="Server Detail" id="yh1-mg-uTd">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r1b-zv-bJZ">
                             <connections>
                                 <segue destination="wDM-d0-4Qc" kind="modal" id="PuE-TX-OTn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="address" destination="ia4-1K-A92" id="sLe-ZH-y2W"/>
+                        <outlet property="name" destination="Smn-9m-Zmo" id="65U-xi-gpS"/>
+                        <outlet property="password" destination="srF-dm-bxF" id="hK4-Fz-z8G"/>
+                        <outlet property="port" destination="ijA-4v-hX1" id="ic9-fv-cR8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxd-Ag-Ee0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -511,10 +517,20 @@
                 <relationship kind="outlet" name="noServersView" candidateClass="UIView"/>
             </relationships>
         </class>
+        <class className="ServerActivityViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerActivityViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="ServerDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerDetailViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="address" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="password" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="port" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
