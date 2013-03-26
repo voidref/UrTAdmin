@@ -22,29 +22,29 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
+    [[NSBundle mainBundle] loadNibNamed:@"NoServers" owner:self options:nil];
 }
 	
-/*
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
+
+	if (0 == [ServerData serverCount])
+	{
+        self.cachedTV = self.tableView;
+		self.view = self.noServersView;
+	}
+    else if (self.view == self.noServersView)
+    {
+        self.tableView = self.cachedTV;
+    }
+    
+    [self.tableView reloadData];
 }
-*/
 
 - (void)viewDidAppear: (BOOL)animated 
 {
     [super viewDidAppear:animated];
-	
-    // TODO: Add "no servers, press '+' above to add one" screen.
-//	if (0 == [ServerData serverCount])
-//	{
-//		self.view = self.noServersView;
-//	}
-//    else if (nil == self.view)
-//    {
-//        self.view = self.tableView;
-//    }
-
-    [self.tableView reloadData];
 }
 
 /*

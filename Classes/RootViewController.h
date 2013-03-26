@@ -15,5 +15,5 @@
 }
 
 @property (nonatomic, retain) IBOutlet  UIView *                noServersView;
-
+@property (nonatomic, retain) IBOutlet  UITableView*            cachedTV;
 @end
