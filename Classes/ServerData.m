@@ -25,7 +25,7 @@
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     
     NSLog(@"defaults: %@", [defs dictionaryRepresentation]);
-	int count = [defs integerForKey: @"ServerCount"] + 1;
+	int count = [defs integerForKey: @"ServerCount"];
 	int version = [defs integerForKey: @"Storage Version"];
 	
 	if (0 == version)
@@ -42,7 +42,7 @@
     
 	NSLog(@"Set Server %d: %@", count, serverData_);
 	
-	[defs setInteger:count 
+	[defs setInteger:count + 1
 			  forKey:@"ServerCount"];
 	
 	
@@ -59,7 +59,7 @@
     [defs removeObjectForKey:key];
     
     // Shift the rest of the server indexes up one
-    // This isn't the most efficient way to go about doing thins, but we are abusing UserDefaults here, after all.
+    // This isn't the most efficient way to go about doing things, but we are abusing UserDefaults here, after all.
     NSArray* server = nil;
     NSString* oldkey = [NSString stringWithFormat:@"Server %d", index_ + 1];
     for(uint32_t i = index_ + 1; nil != (server = [defs objectForKey:oldkey]) ; ++i)
@@ -79,7 +79,7 @@
 
 
 + (void) setServerData: (NSArray*)serverData_ 
-atIndex: (uint32_t)index_
+               atIndex: (uint32_t)index_
 {
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     

@@ -34,6 +34,8 @@
 - (IBAction) confirmChanges:    (id)sender;
 - (IBAction) cancel:            (id)sender;
 
+- (IBAction) done: (UIStoryboardSegue*) segue_;
+
 @end
 
 

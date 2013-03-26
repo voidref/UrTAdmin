@@ -15,7 +15,6 @@
 
 @implementation RootViewController
 
-@synthesize current;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -25,14 +24,6 @@
     [super viewDidLoad];
 }
 	
-
-- (IBAction) createNewServer: (id)sender
-{
-	addServer = [[AddServerController alloc ] initWithNibName: @"AddServer" bundle: [NSBundle mainBundle]];
-	
-	[self presentViewController: addServer animated: YES completion:nil];
-}
-
 /*
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -44,10 +35,14 @@
     [super viewDidAppear:animated];
 	
     // TODO: Add "no servers, press '+' above to add one" screen.
-//	if (0 == serverCount) 
+//	if (0 == [ServerData serverCount])
 //	{
-//		[self createNewServer:nil];
-//	} 
+//		self.view = self.noServersView;
+//	}
+//    else if (nil == self.view)
+//    {
+//        self.view = self.tableView;
+//    }
 
     [self.tableView reloadData];
 }
@@ -73,11 +68,11 @@
 
 - (void) startEditing: (NSInteger) index_
 {
-    editor = [[EditServerViewController alloc ] initWithNibName: @"EditServerViewController"
-                                                         bundle: [NSBundle mainBundle]];
-    editor.delegate = self;
-    editor.serverIndex = index_;
-    [self.navigationController pushViewController:editor animated:YES];    
+//    editor = [[EditServerViewController alloc ] initWithNibName: @"EditServerViewController"
+//                                                         bundle: [NSBundle mainBundle]];
+//    editor.delegate = self;
+//    editor.serverIndex = index_;
+//    [self.navigationController pushViewController:editor animated:YES];    
 }
 
 - (void) stopEditing
@@ -118,7 +113,7 @@
     }
     
 	// Configure the cell.
-	NSArray* data = [ServerData getServerDataAtIndex:indexPath.row + 1];
+	NSArray* data = [ServerData getServerDataAtIndex:indexPath.row];
 
 	cell.textLabel.text = [data objectAtIndex:0];
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [data objectAtIndex:1]];
@@ -174,19 +169,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     NSLog(@"%s: %@", __PRETTY_FUNCTION__, indexPath);
-    
-//    current = [[ServerViewController alloc] initWithNibName:@"ServerViewController" bundle:nil];
-    
-    // Server Indexes are 1 based (possibly because I am crazy)
-//    [current setIndex:indexPath.row + 1];
-    
-    // Pass the selected object to the new view controller.
-//    [self.navigationController pushViewController:current animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-//    [self startEditing: indexPath.row + 1];
+//    [self startEditing: indexPath.row];
 }
 
 #pragma mark -
@@ -196,10 +183,6 @@
       willShowViewController:(UIViewController *)viewController
                     animated:(BOOL)animated
 {
-    if (viewController == self) 
-    {
-        [current reset];
-    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue_
@@ -209,8 +192,7 @@
     {
         ServerViewController* controller = (ServerViewController*)[segue_ destinationViewController];
         
-        // TODO: I need to change over to 0 based indexes for the servers
-        controller.index = [self.tableView indexPathForSelectedRow].row + 1;
+        controller.index = [self.tableView indexPathForSelectedRow].row;
     }
 }
 

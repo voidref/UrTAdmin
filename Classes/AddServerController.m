@@ -120,11 +120,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	// What I want here is a switch, or a 'nextFocusObject' method I can use.
-	if (serverName == textField)
-	{
-		[serverIP becomeFirstResponder];
-	}
-	else if (serverIP == textField)
+	if (serverIP == textField)
 	{
 		[serverPort becomeFirstResponder];
 	}
@@ -132,13 +128,16 @@
 	{
 		[serverPassword becomeFirstResponder];
 	}
+    else if (serverPassword == textField)
+	{
+		[serverName becomeFirstResponder];
+	}
 	else 
 	{
 		[textField resignFirstResponder];
+        [self confirmAdd:nil];
 	}
 
-	NSLog(@"Should return for %@", textField.text);
-	
 	return NO;
 }
 

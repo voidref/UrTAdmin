@@ -109,6 +109,17 @@
 }
 
 
+- (IBAction) done: (UIStoryboardSegue*) segue_
+{
+	NSArray* data = [NSArray arrayWithObjects:  self.serverName.text,
+                     self.serverIP.text,
+                     self.serverPort.text,
+                     self.serverPassword.text,
+                     nil];
+    
+    [ServerData setServerData: data
+                      atIndex: self.serverIndex];
+}
 
 - (IBAction) confirmChanges:(id)sender
 {

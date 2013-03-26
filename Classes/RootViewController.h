@@ -12,14 +12,8 @@
 
 @interface RootViewController : UITableViewController <UINavigationControllerDelegate>
 {
-	AddServerController*        addServer;
-    
-    ServerViewController*       current;
-    EditServerViewController*   editor;
 }
 
-@property (nonatomic) ServerViewController* current;
-
-- (IBAction)    createNewServer:    (id) sender;
+@property (nonatomic, retain) IBOutlet  UIView *                noServersView;
 
 @end
