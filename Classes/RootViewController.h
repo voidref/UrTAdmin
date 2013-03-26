@@ -7,7 +7,7 @@
 //
 
 @class AddServerController;
-@class ServerViewController;
+@class ServerActivityViewController;
 @class EditServerViewController;
 
 @interface RootViewController : UITableViewController <UINavigationControllerDelegate>

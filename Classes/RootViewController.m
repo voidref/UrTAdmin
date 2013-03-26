@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "AddServerController.h"
 #import "EditServerViewController.h"
-#import "ServerViewController.h"
+#import "ServerActivityViewController.h"
 #import "ServerData.h"
 
 
@@ -115,9 +115,16 @@
 	// Configure the cell.
 	NSArray* data = [ServerData getServerDataAtIndex:indexPath.row];
 
-	cell.textLabel.text = [data objectAtIndex:0];
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [data objectAtIndex:1]];
-
+    if (data.count == 4)
+    {
+        cell.textLabel.text = [data objectAtIndex:0];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [data objectAtIndex:1]];
+    }
+    else
+    {
+        NSLog(@"** Error, data incomplete for row %i, bad coder, bad!", indexPath.row);
+        [ServerData deleteServerAtIndex: indexPath.row];
+    }
 		
     return cell;
 }
@@ -188,11 +195,12 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue_
                   sender:(id)sender_
 {
-    if ([segue_.identifier isEqualToString: @"ServerView"])
+    // Make the assumption that if we have set the name of the Seque, we will need to do this.
+    if (segue_.identifier.length > 0)
     {
-        ServerViewController* controller = (ServerViewController*)[segue_ destinationViewController];
+        id<ServerViewController> controller = [segue_ destinationViewController];
         
-        controller.index = [self.tableView indexPathForSelectedRow].row;
+        [controller setServerIndex: [self.tableView indexPathForSelectedRow].row];
     }
 }
 

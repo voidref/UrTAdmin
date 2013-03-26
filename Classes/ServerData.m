@@ -50,7 +50,7 @@
 }
 
 
-+ (void) deleteServerAtIndex: (uint32_t)index_
++ (void) deleteServerAtIndex: (NSUInteger)index_
 {
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     
@@ -79,8 +79,14 @@
 
 
 + (void) setServerData: (NSArray*)serverData_ 
-               atIndex: (uint32_t)index_
+               atIndex: (NSUInteger)index_
 {
+    if (serverData_.count < 4)
+    {
+        NSLog(@" ** Error, incorrect amount of data for server, fix your code, slacker");
+        return;
+    }
+    
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     
 	[defs setObject:serverData_
@@ -89,7 +95,7 @@
 	[NSUserDefaults resetStandardUserDefaults];
 }
 
-+ (NSArray*) getServerDataAtIndex: (uint32_t)index_
++ (NSArray*) getServerDataAtIndex: (NSUInteger)index_
 {
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     

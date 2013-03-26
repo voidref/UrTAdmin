@@ -6,11 +6,11 @@
 //  Copyright 2011 Voidref Software. All rights reserved.
 //
 
-#import "ServerViewController.h"
+#import "ServerActivityViewController.h"
 #import "EditServerViewController.h"
 #import "ServerData.h"
 
-@implementation ServerViewController
+@implementation ServerActivityViewController
 
 @synthesize mapName;
 @synthesize conn;
@@ -69,7 +69,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)setIndex: (uint32_t)index_
+- (void)setServerIndex: (uint32_t)index_
 {
     serverIndex = index_;
 
@@ -132,7 +132,7 @@
     else
     {
         // force a refresh
-        [self setIndex: serverIndex];
+        [self setServerIndex: serverIndex];
     }
 }
 

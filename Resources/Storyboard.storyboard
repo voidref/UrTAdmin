@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="104" y="275"/>
         </scene>
-        <!--Table View Controller - Server Name-->
+        <!--Server Detail View Controller - Server Name-->
         <scene sceneID="sZO-yP-job">
             <objects>
-                <tableViewController id="Fz0-VY-Wyw" sceneMemberID="viewController">
+                <tableViewController id="Fz0-VY-Wyw" customClass="ServerDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="IoN-Od-cXE">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -395,10 +395,10 @@
             </objects>
             <point key="canvasLocation" x="1191" y="275"/>
         </scene>
-        <!--Server View Controller-->
+        <!--Server Activity View Controller-->
         <scene sceneID="3EI-y7-7hT">
             <objects>
-                <tableViewController id="OA0-Hy-Gu5" customClass="ServerViewController" sceneMemberID="viewController">
+                <tableViewController id="OA0-Hy-Gu5" customClass="ServerActivityViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Wjl-eP-zSR">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -494,7 +494,6 @@
                 <relationship kind="action" name="cancel:"/>
                 <relationship kind="action" name="confirmChanges:"/>
                 <relationship kind="action" name="deleteServer:"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="confirmButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="deleteServer" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="serverIP" candidateClass="UITextField"/>
@@ -512,10 +511,10 @@
                 <relationship kind="outlet" name="noServersView" candidateClass="UIView"/>
             </relationships>
         </class>
-        <class className="ServerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerViewController.h"/>
+        <class className="ServerDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerDetailViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="mapName" candidateClass="UILabel"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
             </relationships>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">

@@ -6,7 +6,9 @@
 //  Copyright (c) 2011 Voidref Software. All rights reserved.
 //
 
-@interface EditServerViewController : UIViewController
+#import "ServerViewController.h"
+
+@interface EditServerViewController : UIViewController<ServerViewController>
 {
 	UITextField*		__weak serverName;
 	UITextField*		__weak serverIP;
@@ -15,7 +17,6 @@
 	UIBarButtonItem*	__weak confirmButton;
     UIButton*           __weak deleteServer;
 
-    uint32_t                   serverIndex;
     id                  __weak delegate;
 }
 
@@ -27,14 +28,12 @@
 @property (weak) IBOutlet UIBarButtonItem*	confirmButton;
 @property (weak) IBOutlet UIButton*         deleteServer;
 
-@property (assign)          uint32_t        serverIndex;
-@property (weak)            id              delegate;
+@property (assign)        NSUInteger        serverIndex;
+@property (weak)          id                delegate;
 
 - (IBAction) deleteServer:      (id)sender;
 - (IBAction) confirmChanges:    (id)sender;
 - (IBAction) cancel:            (id)sender;
-
-- (IBAction) done: (UIStoryboardSegue*) segue_;
 
 @end
 

@@ -11,7 +11,16 @@
 int main(int argc, char *argv[]) {
     
     @autoreleasepool {
-        int retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([UrTAdminAppDelegate class]));
+        
+        int retVal = 1;
+        @try {
+            retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([UrTAdminAppDelegate class]));
+        }
+        @catch (NSException* e_)
+        {
+            NSLog(@"Stack: %@", [e_ callStackSymbols]);
+        }
+        
         return retVal;
     }
 }

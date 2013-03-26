@@ -11,10 +11,12 @@
 @interface ServerData : NSObject
 
 + (uint32_t) serverCount;
-+ (void)     addServer: (NSArray*) serverData;
-+ (void)     deleteServerAtIndex: (uint32_t)index;
-+ (void)     setServerData: (NSArray*)serverData 
-                   atIndex: (uint32_t)index;
-+ (NSArray*) getServerDataAtIndex: (uint32_t)index;
++ (void)     addServer:             (NSArray*)      serverData;
++ (void)     deleteServerAtIndex:   (NSUInteger)    index;
+
++ (void)     setServerData:         (NSArray*)      serverData
+                   atIndex:         (NSUInteger)    index;
+
++ (NSArray*) getServerDataAtIndex:  (NSUInteger)    index;
 
 @end
