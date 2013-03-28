@@ -10,6 +10,8 @@
 
 #import "InlineEditTableViewCell.h"
 
+NSString* kDetailTextProperty = @"DetailText";
+
 @implementation InlineEditTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -58,11 +60,12 @@
     }
     else
     {
-        // Store changes in detailTextLabel as these are static and we don't
-        // have direct access to the orginating store
         if (nil != self.editor)
         {
-            self.detailTextLabel.text   = self.editor.text;
+            // The table delegate is responsible for populating our new value
+            [self.delegate inlineEditTableViewCell: self
+                                   propertyUpdated: kDetailTextProperty
+                                      updatedValue: self.editor.text];
         }
         
         self.editor.hidden          = YES;

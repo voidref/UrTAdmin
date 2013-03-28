@@ -6,8 +6,25 @@
 //  Copyright (c) 2013 Rockwood Software. All rights reserved.
 //
 
-@interface InlineEditTableViewCell : UITableViewCell
+@class InlineEditTableViewCell;
 
-@property (strong, nonatomic)   UITextField*    editor;
+@protocol InlineEditTableViewCellDelegate <NSObject>
+
+// Currently only supports kDetailTextProperty. (the text value of the detail text label)
+// Nomenclature is always the hardest part.
+- (void) inlineEditTableViewCell: (InlineEditTableViewCell*) cell_
+                 propertyUpdated: (NSString*)                property_
+                           value: (NSString*)                value_;
 
 @end
+
+extern NSString* kDetailTextProperty;
+
+
+
+@interface InlineEditTableViewCell : UITableViewCell
+
+@property (strong, nonatomic)               UITextField*                        editor;
+@property (weak, nonatomic)     IBOutlet    id<InlineEditTableViewCellDelegate> delegate;
+@end
+

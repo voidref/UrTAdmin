@@ -16,7 +16,6 @@
 		2D00A125142A78BA005CA53F /* ServerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00A124142A78BA005CA53F /* ServerData.m */; };
 		2D5352F71417343A00731C42 /* ServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5352F61417343A00731C42 /* ServerConnection.m */; };
 		2D5352F91418012200731C42 /* ServerActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5352F81418012200731C42 /* ServerActivityViewController.m */; };
-		2D742AAB141C8EAA00787D61 /* EditServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D742AA9141C8EAA00787D61 /* EditServerViewController.m */; };
 		2D94D93711C59F2C00E8DD6B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D94D93611C59F2C00E8DD6B /* iAd.framework */; };
 		2DB96D3B16FEC87D0031D0FF /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB96D3A16FEC87D0031D0FF /* Storyboard.storyboard */; };
 		2DB96D3D170117000031D0FF /* NoServers.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB96D3C170117000031D0FF /* NoServers.xib */; };
@@ -46,8 +45,6 @@
 		2D5352F51417340B00731C42 /* ServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConnection.h; sourceTree = "<group>"; };
 		2D5352F61417343A00731C42 /* ServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerConnection.m; sourceTree = "<group>"; };
 		2D5352F81418012200731C42 /* ServerActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerActivityViewController.m; sourceTree = "<group>"; };
-		2D742AA8141C8EAA00787D61 /* EditServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditServerViewController.h; sourceTree = "<group>"; };
-		2D742AA9141C8EAA00787D61 /* EditServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditServerViewController.m; sourceTree = "<group>"; };
 		2D94D93611C59F2C00E8DD6B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		2DB96D3A16FEC87D0031D0FF /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Resources/Storyboard.storyboard; sourceTree = "<group>"; };
 		2DB96D3C170117000031D0FF /* NoServers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoServers.xib; path = Resources/NoServers.xib; sourceTree = "<group>"; };
@@ -99,8 +96,6 @@
 				2DFD8DAF1416035F0056FF0E /* ServerActivityViewController.h */,
 				2DB96D41170135730031D0FF /* ServerViewController.h */,
 				2D5352F81418012200731C42 /* ServerActivityViewController.m */,
-				2D742AA8141C8EAA00787D61 /* EditServerViewController.h */,
-				2D742AA9141C8EAA00787D61 /* EditServerViewController.m */,
 				2D00A123142A78BA005CA53F /* ServerData.h */,
 				2D00A124142A78BA005CA53F /* ServerData.m */,
 				2DB96D3E170130C40031D0FF /* ServerDetailViewController.h */,
@@ -240,7 +235,6 @@
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
 				2D5352F71417343A00731C42 /* ServerConnection.m in Sources */,
 				2D5352F91418012200731C42 /* ServerActivityViewController.m in Sources */,
-				2D742AAB141C8EAA00787D61 /* EditServerViewController.m in Sources */,
 				2D00A125142A78BA005CA53F /* ServerData.m in Sources */,
 				2DEF99E016EFE4E900E2162B /* AsyncUdpSocket.m in Sources */,
 				2DEF99E316F1367A00E2162B /* AddServerController.m in Sources */,

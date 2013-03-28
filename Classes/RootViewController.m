@@ -8,7 +8,6 @@
 
 #import "RootViewController.h"
 #import "AddServerController.h"
-#import "EditServerViewController.h"
 #import "ServerActivityViewController.h"
 #import "ServerData.h"
 

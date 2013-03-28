@@ -7,7 +7,6 @@
 //
 
 #import "ServerActivityViewController.h"
-#import "EditServerViewController.h"
 #import "ServerData.h"
 
 @implementation ServerActivityViewController
@@ -98,54 +97,6 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Editing modes
-
-- (void) startEditing: (id) sender
-{
-    [self setEditingButtonState:YES];
-
-    _editor = [[EditServerViewController alloc ] initWithNibName: @"EditServerViewController"
-                                                         bundle: [NSBundle mainBundle]];
-    _editor.delegate = self;
-    _editor.serverIndex = _serverIndex;
-    [self presentViewController: _editor
-                       animated: YES
-                     completion: nil];
-
-}
-
-- (void) stopEditing: (BOOL) deleted
-{
-    [self setEditingButtonState:NO];
-    [self dismissViewControllerAnimated:YES
-                             completion:nil];
-    
-    if (YES == deleted) 
-    {
-        [[self navigationController] popToRootViewControllerAnimated:YES];
-    }
-    else
-    {
-        // force a refresh
-        [self setServerIndex: _serverIndex];
-    }
-}
-
-- (void) setEditingButtonState: (BOOL) editing
-{
-    if (YES == editing) 
-    {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem: UIBarButtonSystemItemDone 
-                                                                                                 target: self 
-                                                                                                 action: @selector(stopEditing:)];
-    }
-    else
-    {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem: UIBarButtonSystemItemEdit 
-                                                                                                 target: self 
-                                                                                                 action: @selector(startEditing:)];
-    }
-}
 
 #pragma mark -
 #pragma mark Table view data source

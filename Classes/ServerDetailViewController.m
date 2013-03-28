@@ -7,7 +7,6 @@
 //
 
 #import "ServerDetailViewController.h"
-#import "EditServerViewController.h"
 #import "ServerData.h"
 
 @interface ServerDetailViewController ()
@@ -31,12 +30,8 @@
 
     NSArray* data = [ServerData getServerDataAtIndex: _serverIndex];
     
-    // TODO: Really, change to using CoreData, these literals suck.
-    self.name.text       = data[0];
-    self.address.text    = data[1];
-    self.port.text       = data[2];
-    self.password.text   = data[3];
-
+    [self setDetails: data];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -50,88 +45,45 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Data
 
-#pragma mark - Table view data source
+#pragma mark - Cell Data
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) setDetails: (NSArray*) data_
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    // TODO: Really, change to using CoreData, these literals suck.
+    self.name.text       = data_[0];
+    self.address.text    = data_[1];
+    self.port.text       = data_[2];
+    self.password.text   = data_[3];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+#pragma mark - Cell Delegate
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) inlineEditTableViewCell: (InlineEditTableViewCell *)cell_
+                 propertyUpdated: (NSString *)property_
+                           value: (NSString *)value_
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    // Yes, we are checking pointers here as they will be identical
+    if (kDetailTextProperty == property_)
+    {
+        NSMutableArray* data = [[ServerData getServerDataAtIndex: _serverIndex] mutableCopy];
+
+        // This could be tricky, need to keep the tags synchronized.
+        data[cell_.tag] = value_;
+
+        // This does cause a lot (4 updates, in this case) of data churn because we still haven't changed over to using CoreData
+        [ServerData setServerData: data
+                          atIndex: _serverIndex];
+        [self setDetails: data];
 }
-*/
+}
 
 #pragma mark - Table view delegate
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewCellEditingStyleNone;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
-# pragma mark - Navigation
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue_ sender:(id)sender_
-{
-    EditServerViewController* target = [segue_ destinationViewController];
-    
-    target.serverIndex = self.serverIndex;
-}
-
-- (IBAction) done: (UIStoryboardSegue*) segue_
-{
-    EditServerViewController* source = [segue_ sourceViewController];
-	NSArray* data = [NSArray arrayWithObjects:  source.serverName.text,
-                     source.serverIP.text,
-                     source.serverPort.text,
-                     source.serverPassword.text,
-                     nil];
-    
-    [ServerData setServerData: data
-                      atIndex: source.serverIndex];
 }
 
 @end

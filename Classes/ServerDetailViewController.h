@@ -7,7 +7,10 @@
 //
 
 #import "ServerViewController.h"
-@interface ServerDetailViewController : UITableViewController<ServerViewController>
+#import "InlineEditTableViewCell.h"
+
+@interface ServerDetailViewController : UITableViewController<ServerViewController,
+                                                              InlineEditTableViewCellDelegate>
 
 @property (assign, nonatomic)            NSInteger serverIndex;
 @property (weak)                IBOutlet UILabel*  name;
