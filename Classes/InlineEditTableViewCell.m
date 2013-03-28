@@ -65,7 +65,7 @@ NSString* kDetailTextProperty = @"DetailText";
             // The table delegate is responsible for populating our new value
             [self.delegate inlineEditTableViewCell: self
                                    propertyUpdated: kDetailTextProperty
-                                      updatedValue: self.editor.text];
+                                             value: self.editor.text];
         }
         
         self.editor.hidden          = YES;

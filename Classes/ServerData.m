@@ -11,12 +11,16 @@
 
 #import "ServerData.h"
 
+static NSString*    skServerCountKey            = @"ServerCount";
+static NSString*    skStorageVersionKey         = @"StorageVersion";
+static NSUInteger   skCurrentStorageVersion     = 1;
+
 @implementation ServerData
 
 + (uint32_t) serverCount
 {
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
-	return [defs integerForKey: @"ServerCount"];
+	return [defs integerForKey: skServerCountKey];
 }
 
 
@@ -24,26 +28,24 @@
 {
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     
-    NSLog(@"defaults: %@", [defs dictionaryRepresentation]);
-	int count = [defs integerForKey: @"ServerCount"];
-	int version = [defs integerForKey: @"Storage Version"];
+	int count = [defs integerForKey: skServerCountKey];
+	int version = [defs integerForKey: skStorageVersionKey];
 	
 	if (0 == version)
 	{
 		// Set the storage version
-		version = 1;
+		version = skCurrentStorageVersion;
 		
-		[defs setInteger:version 
-				  forKey:@"Storage Version"];		
+		[defs setInteger: version 
+				  forKey: skStorageVersionKey];
 	}
 	
-	[defs setObject:serverData_
-		     forKey:[NSString stringWithFormat:@"Server %d", count]];
+	[defs setObject: serverData_
+		     forKey: [ServerData serverKeyForIndex: count]];
     
-	NSLog(@"Set Server %d: %@", count, serverData_);
 	
 	[defs setInteger:count + 1
-			  forKey:@"ServerCount"];
+			  forKey:skServerCountKey];
 	
 	
 	[NSUserDefaults resetStandardUserDefaults];
@@ -54,25 +56,25 @@
 {
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     
-    NSString* key = [NSString stringWithFormat:@"Server %d", index_];
+    NSString* key = [ServerData serverKeyForIndex: index_];
     
     [defs removeObjectForKey:key];
     
     // Shift the rest of the server indexes up one
     // This isn't the most efficient way to go about doing things, but we are abusing UserDefaults here, after all.
     NSArray* server = nil;
-    NSString* oldkey = [NSString stringWithFormat:@"Server %d", index_ + 1];
+    NSString* oldkey = [ServerData serverKeyForIndex: index_ + 1];
     for(uint32_t i = index_ + 1; nil != (server = [defs objectForKey:oldkey]) ; ++i)
     {
         [defs setObject:server
                  forKey:key];
         
         key = oldkey;
-        oldkey = [NSString stringWithFormat:@"Server %d", i];
+        oldkey = [ServerData serverKeyForIndex: i];
     }
     
-    [defs setInteger:[defs integerForKey: @"ServerCount"] - 1
-              forKey:@"ServerCount"];
+    [defs setInteger: [defs integerForKey: skServerCountKey] - 1
+              forKey: skServerCountKey];
     
     [NSUserDefaults resetStandardUserDefaults];
 }
@@ -89,8 +91,8 @@
     
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     
-	[defs setObject:serverData_
-		     forKey:[NSString stringWithFormat:@"Server %d", index_]];
+	[defs setObject: serverData_
+		     forKey: [ServerData serverKeyForIndex: index_]];
     
 	[NSUserDefaults resetStandardUserDefaults];
 }
@@ -99,8 +101,12 @@
 {
 	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     
-	NSString* key = [NSString stringWithFormat:@"Server %d", index_];
+	NSString* key = [ServerData serverKeyForIndex: index_];
 	return [defs stringArrayForKey: key];
 }
 
++ (NSString*) serverKeyForIndex: (NSUInteger) index_
+{
+    return [NSString stringWithFormat:@"Server %d", index_];
+}
 @end
