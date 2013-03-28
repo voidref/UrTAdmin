@@ -12,7 +12,6 @@
 
 @implementation ServerActivityViewController
 
-@synthesize mapName;
 @synthesize conn;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -20,8 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.conn = nil;
-        serverIndex = -1;
+        _serverIndex = -1;
     }
 
     return self;
@@ -30,12 +28,12 @@
 - (void)dealloc
 {
     [self reset];
-    
 }
 
 - (void) reset
 {
-    self.conn = nil;
+    self.mapName    = nil;
+    self.conn       = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,14 +49,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
-    
-//    [self setEditingButtonState:NO];
 }
 
 - (void)viewDidUnload
 {
     [self reset];
-    self.mapName = nil;
         
     [super viewDidUnload];
 }
@@ -69,12 +64,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)setServerIndex: (uint32_t)index_
+- (void)setServerIndex: (NSUInteger)index_
 {
-    serverIndex = index_;
+    _serverIndex = index_;
 
-	NSArray* data = [ServerData getServerDataAtIndex: serverIndex];
-    NSLog(@"Server %d Data array: %@", serverIndex, data);
+	NSArray* data = [ServerData getServerDataAtIndex: _serverIndex];
+    NSLog(@"Server %d Data array: %@", _serverIndex, data);
     
 	self.title = [data objectAtIndex:0];
     if (self.title.length < 1)
@@ -82,23 +77,23 @@
         self.title = @"noname server";
     }
     
-    [conn close];
-    conn = [[ServerConnection alloc] initWithDelegate: self];
-    [conn initNetworkCommunication:[NSString stringWithFormat:@"%@", [data objectAtIndex:1]]
+    [self.conn close];
+    self.conn = [[ServerConnection alloc] initWithDelegate: self];
+    [self.conn initNetworkCommunication:[NSString stringWithFormat:@"%@", [data objectAtIndex:1]]
                               port:[[NSString stringWithFormat:@"%@", [data objectAtIndex:2]] intValue]
                           password:[NSString stringWithFormat:@"%@", [data objectAtIndex:3]]];
 }
 
 - (void)serverDataAvailable
 {
-    NSString* map = [conn getVar:@"mapname"];
+    NSString* map = [self.conn getVar:@"mapname"];
     
     if( map.length < 1 )
     {
         map = @"<between maps>";
     }
 
-    _mapName = map;
+    self.mapName = map;
     
     [self.tableView reloadData];
 }
@@ -109,11 +104,11 @@
 {
     [self setEditingButtonState:YES];
 
-    editor = [[EditServerViewController alloc ] initWithNibName: @"EditServerViewController" 
+    _editor = [[EditServerViewController alloc ] initWithNibName: @"EditServerViewController"
                                                          bundle: [NSBundle mainBundle]];
-    editor.delegate = self;
-    editor.serverIndex = serverIndex;
-    [self presentViewController: editor
+    _editor.delegate = self;
+    _editor.serverIndex = _serverIndex;
+    [self presentViewController: _editor
                        animated: YES
                      completion: nil];
 
@@ -132,7 +127,7 @@
     else
     {
         // force a refresh
-        [self setServerIndex: serverIndex];
+        [self setServerIndex: _serverIndex];
     }
 }
 
@@ -196,15 +191,15 @@
     {
         cellId = mapCellIdentifier;
         label  = @"Map";
-        detail = _mapName;
+        detail = self.mapName;
     }
     else
     {
-        label = [conn getPlayerAtrib:paName
-                               index:indexPath.row];
+        label = [self.conn getPlayerAtrib:paName
+                                    index:indexPath.row];
         
-        detail = [conn getPlayerAtrib:paScore
-                                index:indexPath.row];
+        detail = [self.conn getPlayerAtrib:paScore
+                                     index:indexPath.row];
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -226,7 +221,7 @@
 {
     NSString* result = nil;
     
-    if (1 == section)
+    if ((1 == section) && (conn.players.count > 0))
     {
         result = @"Players";
     }

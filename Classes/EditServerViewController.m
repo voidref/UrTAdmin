@@ -102,7 +102,7 @@
 
 
 
-- (IBAction) deleteServer:(id)sender
+- (IBAction) deleteServer:(id)sender_
 {
     [ServerData deleteServerAtIndex: self.serverIndex];
 
@@ -110,7 +110,7 @@
 }
 
 
-- (IBAction) confirmChanges:(id)sender
+- (IBAction) confirmChanges:(id)sender_
 {
 	NSArray* data = [NSArray arrayWithObjects:  self.serverName.text,
                                                 self.serverIP.text,
@@ -124,7 +124,7 @@
     [delegate stopEditing];    
 }
 
-- (IBAction) cancel:(id)sender
+- (IBAction) cancel:(id)sender_
 {
     [delegate stopEditing];
 }

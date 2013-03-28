@@ -10,10 +10,11 @@
 
 int main(int argc, char *argv[]) {
     
-    @autoreleasepool {
-        
+    @autoreleasepool
+    {
         int retVal = 1;
-        @try {
+        @try
+        {
             retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([UrTAdminAppDelegate class]));
         }
         @catch (NSException* e_)

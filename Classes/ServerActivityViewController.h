@@ -14,23 +14,21 @@
                                                                  UITableViewDataSource,
                                                                  ServerViewController>
 {
-    NSString*                   _mapName;
-    ServerConnection*           conn;
-    EditServerViewController*   editor;
-    uint32_t                    serverIndex;
+    EditServerViewController*   _editor;
+    NSUInteger                  _serverIndex;
 }
 
-@property (weak) IBOutlet       UILabel*            mapName;
+@property (strong)              NSString*           mapName;
 @property (nonatomic, strong)   ServerConnection*   conn;
 
 - (void) dealloc;
 - (void) reset;
 
-- (void) setServerIndex: (uint32_t)index;
+- (void) setServerIndex:        (NSUInteger)    index_;
 
-- (void) startEditing: (id) sender;
-- (void) stopEditing: (BOOL) editing;
-- (void) setEditingButtonState: (BOOL) editing;
+- (void) startEditing:          (id)            sender_;
+- (void) stopEditing:           (BOOL)          editing_;
+- (void) setEditingButtonState: (BOOL)          editing_;
 
 - (void) serverDataAvailable;
 

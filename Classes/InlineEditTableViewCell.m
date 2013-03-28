@@ -45,9 +45,9 @@
             self.editor       = [UITextField new];
             self.editor.text  = self.detailTextLabel.text;
 
-            CGRect eframe = self.detailTextLabel.frame;
-            eframe.size = CGSizeMake(self.contentView.frame.size.width - eframe.origin.x,
-                                     [@"Xg" sizeWithFont: self.editor.font].height);
+            CGRect eframe   = self.detailTextLabel.frame;
+            eframe.size     = CGSizeMake(self.contentView.frame.size.width - eframe.origin.x,
+                                         [@"Xg" sizeWithFont: self.editor.font].height);
             
             self.editor.frame = eframe;
             [self.contentView addSubview: self.editor];

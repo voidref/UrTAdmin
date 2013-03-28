@@ -172,11 +172,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Server Detail" id="yh1-mg-uTd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r1b-zv-bJZ">
-                            <connections>
-                                <segue destination="wDM-d0-4Qc" kind="modal" id="PuE-TX-OTn"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r1b-zv-bJZ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="address" destination="ia4-1K-A92" id="h88-ok-345"/>
@@ -187,7 +183,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxd-Ag-Ee0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="711" y="275"/>
+            <point key="canvasLocation" x="697" y="275"/>
         </scene>
         <!--Add Server Controller-->
         <scene sceneID="GQt-tw-M31">
@@ -286,121 +282,6 @@
             </objects>
             <point key="canvasLocation" x="711" y="-529"/>
         </scene>
-        <!--Edit Server View Controller-->
-        <scene sceneID="YmO-QE-LGP">
-            <objects>
-                <viewController id="wDM-d0-4Qc" customClass="EditServerViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eFM-uu-yjf">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="2R2-ud-LUR" userLabel="CancelDoneBar">
-                                <items>
-                                    <barButtonItem title="Cancel" id="P7Y-jl-MC5" userLabel="CancelEditServer">
-                                        <connections>
-                                            <action selector="cancel:" destination="wDM-d0-4Qc" id="g1P-Oo-UZz"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="X9e-t1-aOV"/>
-                                    <barButtonItem title="Done" id="BzJ-LY-ssk" userLabel="DoneEditServer">
-                                        <connections>
-                                            <action selector="confirmChanges:" destination="wDM-d0-4Qc" id="5tk-00-wbs"/>
-                                            <segue destination="5EP-B0-zAn" kind="unwind" unwindAction="done:" id="fnQ-Ci-fnt"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Edit Server" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cag-TF-0kt" userLabel="NewServerTitle">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="93" id="eqc-40-vfd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.27368341610000002" green="0.40381915889999997" blue="0.52717391300000005" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Server Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WRP-fm-iHA" userLabel="ServerNameEdit">
-                                <accessibility key="accessibilityConfiguration" label="Server"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="WqQ-vC-Ifn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IP Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vPF-YE-XyA" userLabel="IPAddressEdit">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="154" id="F9O-pe-q15"/>
-                                    <constraint firstAttribute="height" constant="31" id="IvX-NM-CKS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="27960" borderStyle="roundedRect" placeholder="Port" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hn5-wX-hgP" userLabel="PortEdit">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="Q57-ZM-S5B"/>
-                                    <constraint firstAttribute="height" constant="31" id="oAN-eg-sML"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yp7-gZ-YS4">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="xwu-Oz-ej0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17R-VP-hcZ">
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="2Hw-c4-3OY"/>
-                                    <constraint firstAttribute="width" constant="281" id="Fig-1O-YqW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Delete Server">
-                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteServer:" destination="wDM-d0-4Qc" eventType="touchUpInside" id="dM9-q7-8NR"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="WRP-fm-iHA" firstAttribute="leading" secondItem="eFM-uu-yjf" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3hP-8g-Df5"/>
-                            <constraint firstItem="2R2-ud-LUR" firstAttribute="top" secondItem="eFM-uu-yjf" secondAttribute="top" type="default" id="89q-ip-QhL"/>
-                            <constraint firstItem="2R2-ud-LUR" firstAttribute="trailing" secondItem="eFM-uu-yjf" secondAttribute="trailing" type="default" id="8uc-pc-r6h"/>
-                            <constraint firstItem="2R2-ud-LUR" firstAttribute="centerY" secondItem="Cag-TF-0kt" secondAttribute="centerY" type="default" id="9U9-1f-iGy"/>
-                            <constraint firstAttribute="trailing" secondItem="WRP-fm-iHA" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NOe-R5-YlT"/>
-                            <constraint firstItem="yp7-gZ-YS4" firstAttribute="leading" secondItem="eFM-uu-yjf" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="QeT-7W-yUA"/>
-                            <constraint firstItem="yp7-gZ-YS4" firstAttribute="top" secondItem="hn5-wX-hgP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UMD-Qv-0ev"/>
-                            <constraint firstItem="vPF-YE-XyA" firstAttribute="top" secondItem="eFM-uu-yjf" secondAttribute="top" constant="66" id="Xcz-d6-NZb"/>
-                            <constraint firstItem="WRP-fm-iHA" firstAttribute="top" secondItem="yp7-gZ-YS4" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ZcN-Fv-1cR"/>
-                            <constraint firstAttribute="trailing" secondItem="yp7-gZ-YS4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cRB-yg-WUh"/>
-                            <constraint firstAttribute="bottom" secondItem="17R-VP-hcZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="eF5-dl-jvq"/>
-                            <constraint firstAttribute="trailing" secondItem="17R-VP-hcZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="k2V-nf-UuE"/>
-                            <constraint firstItem="17R-VP-hcZ" firstAttribute="centerX" secondItem="Cag-TF-0kt" secondAttribute="centerX" type="default" id="ly0-t5-ZBi"/>
-                            <constraint firstItem="17R-VP-hcZ" firstAttribute="leading" secondItem="vPF-YE-XyA" secondAttribute="leading" type="default" id="nEA-bC-Lxn"/>
-                            <constraint firstItem="hn5-wX-hgP" firstAttribute="top" secondItem="vPF-YE-XyA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sdn-8S-Wjh"/>
-                            <constraint firstItem="hn5-wX-hgP" firstAttribute="leading" secondItem="eFM-uu-yjf" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="smA-zs-Oxb"/>
-                            <constraint firstItem="2R2-ud-LUR" firstAttribute="leading" secondItem="eFM-uu-yjf" secondAttribute="leading" type="default" id="wEk-f7-lYb"/>
-                        </constraints>
-                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    </view>
-                    <connections>
-                        <outlet property="deleteServer" destination="17R-VP-hcZ" id="815-NC-R7Z"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Amv-kv-qUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="5EP-B0-zAn" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1191" y="275"/>
-        </scene>
         <!--Server Activity View Controller-->
         <scene sceneID="3EI-y7-7hT">
             <objects>
@@ -480,67 +361,6 @@
             <point key="canvasLocation" x="-514" y="275"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddServerController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddServerController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelAdd:"/>
-                <relationship kind="action" name="confirmAdd:"/>
-                <relationship kind="outlet" name="confirmButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="serverIP" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="serverName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="serverNameSpinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="serverPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="serverPort" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EditServerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditServerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="confirmChanges:"/>
-                <relationship kind="action" name="deleteServer:"/>
-                <relationship kind="outlet" name="confirmButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="deleteServer" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="serverIP" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="serverName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="serverPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="serverPort" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="InlineEditTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InlineEditTableViewCell.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RootViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cachedTV" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="noServersView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="ServerActivityViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerActivityViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ServerDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="address" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="password" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="port" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

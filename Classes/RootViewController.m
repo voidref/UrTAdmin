@@ -24,15 +24,18 @@
     [super viewDidLoad];
     [[NSBundle mainBundle] loadNibNamed:@"NoServers" owner:self options:nil];
 }
-	
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
 	if (0 == [ServerData serverCount])
 	{
         self.cachedTV = self.tableView;
 		self.view = self.noServersView;
+        self.navigationItem.leftBarButtonItem = nil;
 	}
     else if (self.view == self.noServersView)
     {
@@ -48,17 +51,6 @@
 }
 
 /*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
-
-/*
  // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations.
@@ -66,20 +58,6 @@
 }
  */
 
-- (void) startEditing: (NSInteger) index_
-{
-//    editor = [[EditServerViewController alloc ] initWithNibName: @"EditServerViewController"
-//                                                         bundle: [NSBundle mainBundle]];
-//    editor.delegate = self;
-//    editor.serverIndex = index_;
-//    [self.navigationController pushViewController:editor animated:YES];    
-}
-
-- (void) stopEditing
-{
-    [self dismissViewControllerAnimated:YES
-                             completion:nil];
-}
 
 #pragma mark -
 #pragma mark Table view data source
@@ -161,27 +139,9 @@
 */
 
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark -
 #pragma mark Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    NSLog(@"%s: %@", __PRETTY_FUNCTION__, indexPath);
-}
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-//    [self startEditing: indexPath.row];
-}
 
 #pragma mark -
 #pragma mark Navigation Controller delegate

@@ -31,9 +31,9 @@
 @property (assign)        NSUInteger        serverIndex;
 @property (weak)          id                delegate;
 
-- (IBAction) deleteServer:      (id)sender;
-- (IBAction) confirmChanges:    (id)sender;
-- (IBAction) cancel:            (id)sender;
+- (IBAction) deleteServer:      (id)sender_;
+- (IBAction) confirmChanges:    (id)sender_;
+- (IBAction) cancel:            (id)sender_;
 
 @end
 

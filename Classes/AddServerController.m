@@ -117,24 +117,24 @@
 }
 
 // ------------------------------------------------------------------------------------------------
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (BOOL)textFieldShouldReturn:(UITextField *)textField_
 {
 	// What I want here is a switch, or a 'nextFocusObject' method I can use.
-	if (serverIP == textField)
+	if (serverIP == textField_)
 	{
 		[serverPort becomeFirstResponder];
 	}
-	else if (serverPort == textField)
+	else if (serverPort == textField_)
 	{
 		[serverPassword becomeFirstResponder];
 	}
-    else if (serverPassword == textField)
+    else if (serverPassword == textField_)
 	{
 		[serverName becomeFirstResponder];
 	}
 	else 
 	{
-		[textField resignFirstResponder];
+		[textField_ resignFirstResponder];
         [self confirmAdd:nil];
 	}
 
@@ -142,13 +142,13 @@
 }
 
 // ------------------------------------------------------------------------------------------------
-- (void)textFieldDidEndEditing:(UITextField *)textField
+- (void)textFieldDidEndEditing:(UITextField *)textField_
 {
-    NSLog(@"%s: %@", __PRETTY_FUNCTION__, textField.text);
+    NSLog(@"%s: %@", __PRETTY_FUNCTION__, textField_.text);
 	BOOL enabled = confirmButton.enabled;
     
 	// It at least needs to look like an IP address
-	if (serverIP == textField) 
+	if (serverIP == textField_) 
 	{
 		NSString* ip = serverIP.text;
 		if ([ip length] != 0 ) 
@@ -170,7 +170,7 @@
 			}
 		}
 	}
-    else if (serverPort == textField)
+    else if (serverPort == textField_)
     {
         NSInteger port = [serverPort.text intValue];
     

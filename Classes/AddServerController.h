@@ -20,10 +20,10 @@
     __weak IBOutlet UIActivityIndicatorView*    serverNameSpinner;
 }
 
-- (IBAction) cancelAdd: (id) sender_;
-- (IBAction) confirmAdd: (id) sender_;
+- (IBAction) cancelAdd:     (id) sender_;
+- (IBAction) confirmAdd:    (id) sender_;
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
-- (void)textFieldDidEndEditing:(UITextField *)textField;
+- (BOOL)textFieldShouldReturn:  (UITextField *) textField_;              // called when 'return' key pressed. return NO to ignore.
+- (void)textFieldDidEndEditing: (UITextField *) textField_;
 
 @end
