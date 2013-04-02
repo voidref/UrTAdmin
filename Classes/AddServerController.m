@@ -110,6 +110,11 @@ static       NSString* skStandardPort   = @"27960";
         _password.textLabel.text = @"";
     }
     
+    if (0 == _name.textLabel.text.length)
+    {
+        _name.textLabel.text = _name.editor.text;
+    }
+    
 	NSArray* array = [NSArray arrayWithObjects: _name.textLabel.text,
 					                            _address.textLabel.text,
 												_port.textLabel.text,
@@ -124,36 +129,54 @@ static       NSString* skStandardPort   = @"27960";
 // ------------------------------------------------------------------------------------------------
 - (BOOL)textFieldShouldReturn:(UITextField *)textField_
 {
+    InlineEditTableViewCell* cell = nil;
+    
 	// What I want here is a switch, or a 'nextFocusObject' method I can use.
 	if (_address.editor == textField_)
 	{
 		[_port.editor becomeFirstResponder];
         _address.textLabel.text = textField_.text;
-        
-        // Bit of a hack
-        [self inlineEditTableViewCell: _address propertyUpdated:nil value:textField_.text];
+    
+        cell = _address;
 	}
 	else if (_port.editor == textField_)
 	{
 		[_password.editor becomeFirstResponder];
         _port.textLabel.text = textField_.text;
-
-        // Bit of a hack
-        [self inlineEditTableViewCell: _port propertyUpdated:nil value:textField_.text];
-
+        
+        cell = _port;
 	}
     else if (_password.editor == textField_)
 	{
 		[_name.editor becomeFirstResponder];
         _password.textLabel.text = textField_.text;
+        
+        cell = _password;
 	}
 	else 
 	{
         _name.textLabel.text = textField_.text;
-		[textField_ resignFirstResponder];
-        [self confirmAdd:nil];
+
+        cell = _name;
+        
+        if (textField_.text.length > 0)
+        {
+            [textField_ resignFirstResponder];
+            
+            [self confirmAdd:nil];
+        }
+        else
+        {
+            [_address.editor becomeFirstResponder];
+        }
 	}
 
+    // Bit of a hack
+    [self inlineEditTableViewCell: cell
+                  propertyUpdated: nil
+                            value: textField_.text];
+
+    
 	return NO;
 }
 
@@ -201,6 +224,11 @@ static       NSString* skStandardPort   = @"27960";
         }
     }
 	
+    if (_name.textLabel.text.length < 1)
+    {
+        enabled = NO;
+    }
+    
 	[_confirmButton setEnabled:enabled];
 	
 	if ((YES == enabled) && (_name.editor.text.length < 1))
