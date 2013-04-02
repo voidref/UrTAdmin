@@ -85,8 +85,8 @@
 			children = (
 				2DEF99DE16EFE4E900E2162B /* AsyncUdpSocket.h */,
 				2DEF99DF16EFE4E900E2162B /* AsyncUdpSocket.m */,
-				2D5352F61417343A00731C42 /* ServerConnection.m */,
 				2D5352F51417340B00731C42 /* ServerConnection.h */,
+				2D5352F61417343A00731C42 /* ServerConnection.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* UrTAdminAppDelegate.h */,

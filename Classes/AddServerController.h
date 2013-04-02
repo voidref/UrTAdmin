@@ -7,23 +7,28 @@
 //
 
 #import "ServerConnection.h"
+#import "InlineEditTableViewCell.h"
 
-@interface AddServerController : UIViewController <UITextFieldDelegate, ServerConnectionDelegate> 
+@interface AddServerController : UIViewController <UITextFieldDelegate,
+                                                   ServerConnectionDelegate,
+                                                   InlineEditTableViewCellDelegate,
+                                                   UITableViewDataSource>
 {
-    ServerConnection*   conn;
+    ServerConnection*                           _conn;
 
-	__weak IBOutlet UITextField*                serverName;
-	__weak IBOutlet UITextField*                serverIP;
-	__weak IBOutlet UITextField*                serverPort;
-	__weak IBOutlet UITextField*                serverPassword;
-	__weak IBOutlet UIBarButtonItem*            confirmButton;
-    __weak IBOutlet UIActivityIndicatorView*    serverNameSpinner;
+	__weak IBOutlet UIBarButtonItem*            _confirmButton;
+    __strong        UIActivityIndicatorView*    _serverNameSpinner;
+    __weak IBOutlet UITableView*                _tableView;
+    
+                    InlineEditTableViewCell*    _name;
+                    InlineEditTableViewCell*    _address;
+                    InlineEditTableViewCell*    _port;
+                    InlineEditTableViewCell*    _password;
 }
 
 - (IBAction) cancelAdd:     (id) sender_;
 - (IBAction) confirmAdd:    (id) sender_;
 
 - (BOOL)textFieldShouldReturn:  (UITextField *) textField_;              // called when 'return' key pressed. return NO to ignore.
-- (void)textFieldDidEndEditing: (UITextField *) textField_;
 
 @end

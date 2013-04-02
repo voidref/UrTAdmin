@@ -43,7 +43,7 @@
                     <navigationItem key="navigationItem" title="Servers" id="jfQ-go-49y">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zev-Ff-Pjs">
                             <connections>
-                                <segue destination="nLI-kr-CHe" kind="modal" id="WpX-dL-Kaf"/>
+                                <segue destination="nLI-kr-CHe" kind="modal" id="ljr-U6-xPt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -63,7 +63,7 @@
                         <sections>
                             <tableViewSection id="hVP-cX-EYb">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="SFC-Rh-0Qb" detailTextLabel="Smn-9m-Zmo" style="IBUITableViewCellStyleValue2" id="6H7-1c-tNH" customClass="InlineEditTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" textLabel="SFC-Rh-0Qb" detailTextLabel="Smn-9m-Zmo" style="IBUITableViewCellStyleValue2" id="6H7-1c-tNH" customClass="InlineEditTableViewCell">
                                         <rect key="frame" x="0.0" y="10" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -91,7 +91,7 @@
                                             <outlet property="delegate" destination="Fz0-VY-Wyw" id="b8t-uh-vCY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="iji-SN-zbn" detailTextLabel="ia4-1K-A92" style="IBUITableViewCellStyleValue2" id="wuY-a1-2aO" customClass="InlineEditTableViewCell">
+                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" textLabel="iji-SN-zbn" detailTextLabel="ia4-1K-A92" style="IBUITableViewCellStyleValue2" id="wuY-a1-2aO" customClass="InlineEditTableViewCell">
                                         <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -119,7 +119,7 @@
                                             <outlet property="delegate" destination="Fz0-VY-Wyw" id="IlN-Fo-WNK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pRr-0w-Wnd" detailTextLabel="ijA-4v-hX1" style="IBUITableViewCellStyleValue2" id="sO2-p2-g6o" customClass="InlineEditTableViewCell">
+                                    <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" textLabel="pRr-0w-Wnd" detailTextLabel="ijA-4v-hX1" style="IBUITableViewCellStyleValue2" id="sO2-p2-g6o" customClass="InlineEditTableViewCell">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -147,7 +147,7 @@
                                             <outlet property="delegate" destination="Fz0-VY-Wyw" id="m1S-rM-Bct"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rrz-sw-9BC" detailTextLabel="srF-dm-bxF" style="IBUITableViewCellStyleValue2" id="8mh-Ph-oKq" customClass="InlineEditTableViewCell">
+                                    <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" textLabel="rrz-sw-9BC" detailTextLabel="srF-dm-bxF" style="IBUITableViewCellStyleValue2" id="8mh-Ph-oKq" customClass="InlineEditTableViewCell">
                                         <rect key="frame" x="0.0" y="143" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -195,7 +195,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxd-Ag-Ee0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="275"/>
+            <point key="canvasLocation" x="717" y="275"/>
         </scene>
         <!--Add Server Controller-->
         <scene sceneID="GQt-tw-M31">
@@ -205,7 +205,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="soO-Kx-sIW" userLabel="CancelDoneBar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="top" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="soO-Kx-sIW" userLabel="CancelDoneBar">
                                 <items>
                                     <barButtonItem title="Cancel" id="pkr-1T-k0z" userLabel="CancelNewServer">
                                         <connections>
@@ -226,68 +226,31 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.27368341610000002" green="0.40381915889999997" blue="0.52717391300000005" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Server Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pwv-qh-bcb" userLabel="ServerNameEdit">
-                                <accessibility key="accessibilityConfiguration" label="Server"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="fvB-CB-yu9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IP Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="d9L-YX-jYm" userLabel="IPAddressEdit">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="m9o-gg-nfU"/>
-                                    <constraint firstAttribute="width" constant="197" id="oHu-ey-eqJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" returnKeyType="next"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="27960" borderStyle="roundedRect" placeholder="Port" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D2W-1g-KYt" userLabel="PortEdit">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="Xyb-gK-NFe"/>
-                                    <constraint firstAttribute="width" constant="97" id="w4l-E3-hM2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0R-YM-XRt">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="8ti-Br-eS8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                            </textField>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eTf-4V-Q8r"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="7DS-ei-7LS">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nLI-kr-CHe" id="vMg-e1-D4D"/>
+                                    <outlet property="delegate" destination="nLI-kr-CHe" id="ytJ-pP-COz"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="soO-Kx-sIW" firstAttribute="trailing" secondItem="HlA-OR-Zf7" secondAttribute="trailing" type="default" id="2Fx-ZU-QdZ"/>
-                            <constraint firstItem="eTf-4V-Q8r" firstAttribute="top" secondItem="HlA-OR-Zf7" secondAttribute="top" constant="189" id="5vi-iP-lIS"/>
-                            <constraint firstItem="pwv-qh-bcb" firstAttribute="top" secondItem="M0R-YM-XRt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="93z-nC-Qfz"/>
-                            <constraint firstItem="mwA-Jh-6aX" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" constant="113" id="AZU-E5-r0Z"/>
-                            <constraint firstItem="M0R-YM-XRt" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Hdj-Ak-QdI"/>
-                            <constraint firstAttribute="trailing" secondItem="pwv-qh-bcb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LbL-Ff-VxD"/>
-                            <constraint firstAttribute="trailing" secondItem="M0R-YM-XRt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Lsc-wD-Lqt"/>
+                            <constraint firstItem="7DS-ei-7LS" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" type="default" id="7AE-Nl-pzu"/>
+                            <constraint firstItem="7DS-ei-7LS" firstAttribute="top" secondItem="soO-Kx-sIW" secondAttribute="bottom" type="default" id="CD9-qJ-NFk"/>
+                            <constraint firstItem="mwA-Jh-6aX" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" constant="113" id="TZA-kZ-wrR"/>
                             <constraint firstItem="soO-Kx-sIW" firstAttribute="top" secondItem="HlA-OR-Zf7" secondAttribute="top" type="default" id="VOs-yG-R3x"/>
                             <constraint firstItem="mwA-Jh-6aX" firstAttribute="centerY" secondItem="soO-Kx-sIW" secondAttribute="centerY" type="default" id="Vkw-9z-Whu"/>
                             <constraint firstItem="soO-Kx-sIW" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" type="default" id="Zxg-Ie-l7z"/>
-                            <constraint firstItem="D2W-1g-KYt" firstAttribute="top" secondItem="d9L-YX-jYm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bo2-VJ-V88"/>
-                            <constraint firstAttribute="trailing" secondItem="eTf-4V-Q8r" secondAttribute="trailing" constant="26" id="dWZ-2m-cmh"/>
-                            <constraint firstItem="pwv-qh-bcb" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dWb-6C-6PP"/>
-                            <constraint firstItem="M0R-YM-XRt" firstAttribute="top" secondItem="D2W-1g-KYt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="eWt-Ep-EJX"/>
-                            <constraint firstItem="d9L-YX-jYm" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fUG-5g-bao"/>
-                            <constraint firstItem="d9L-YX-jYm" firstAttribute="top" secondItem="HlA-OR-Zf7" secondAttribute="top" constant="66" id="j2Z-L6-b2D"/>
-                            <constraint firstItem="D2W-1g-KYt" firstAttribute="leading" secondItem="HlA-OR-Zf7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uIC-bZ-ltK"/>
+                            <constraint firstItem="7DS-ei-7LS" firstAttribute="trailing" secondItem="HlA-OR-Zf7" secondAttribute="trailing" type="default" id="b22-D7-1q0"/>
+                            <constraint firstItem="7DS-ei-7LS" firstAttribute="bottom" secondItem="HlA-OR-Zf7" secondAttribute="bottom" type="default" id="r29-92-Mjb"/>
                         </constraints>
                         <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     </view>
                     <connections>
+                        <outlet property="_tableView" destination="7DS-ei-7LS" id="FIl-do-4lW"/>
                         <outlet property="confirmButton" destination="OdG-d2-h9E" id="H8K-8x-omT"/>
-                        <outlet property="serverIP" destination="d9L-YX-jYm" id="wOt-QP-uH0"/>
-                        <outlet property="serverName" destination="pwv-qh-bcb" id="uya-Ok-zlf"/>
-                        <outlet property="serverNameSpinner" destination="eTf-4V-Q8r" id="xOh-D4-2F6"/>
-                        <outlet property="serverPassword" destination="M0R-YM-XRt" id="cx3-VC-fdM"/>
-                        <outlet property="serverPort" destination="D2W-1g-KYt" id="TdH-ed-REH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALD-8Y-oEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,12 +342,8 @@
             <relationships>
                 <relationship kind="action" name="cancelAdd:"/>
                 <relationship kind="action" name="confirmAdd:"/>
-                <relationship kind="outlet" name="confirmButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="serverIP" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="serverName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="serverNameSpinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="serverPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="serverPort" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_confirmButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="InlineEditTableViewCell" superclassName="UITableViewCell">

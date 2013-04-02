@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
         }
         @catch (NSException* e_)
         {
+            NSLog(@" ** Exception Thrown: %@", e_);
             NSLog(@"Stack: %@", [e_ callStackSymbols]);
         }
         

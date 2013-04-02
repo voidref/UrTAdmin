@@ -19,10 +19,14 @@
 @end
 
 extern NSString* kDetailTextProperty;
+extern NSString* kTextProperty;
 
 
 
 @interface InlineEditTableViewCell : UITableViewCell
+{
+    NSInteger _style;
+}
 
 @property (strong, nonatomic)               UITextField*                        editor;
 @property (weak, nonatomic)     IBOutlet    id<InlineEditTableViewCellDelegate> delegate;

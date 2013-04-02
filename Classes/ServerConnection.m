@@ -14,7 +14,9 @@
 
 @implementation ServerConnection
 
-static const char* skPrefix = "\xff\xff\xff\xff";
+static const char*          skPrefix        = "\xff\xff\xff\xff";
+static const long           skSocketTag     = 42;
+static const NSTimeInterval skSocketTimeout = 100;
 
 @synthesize messages;
 @synthesize password;
@@ -36,12 +38,9 @@ static const char* skPrefix = "\xff\xff\xff\xff";
 
 - (void) dealloc
 {
-    NSLog(@"deallocing %@", self);
     [self close];
-
 }
 
-// I think ideally we would override release to free ourselves from being retained by the socket.
 - (void) close
 {
     delegate = nil;
@@ -94,14 +93,14 @@ static const char* skPrefix = "\xff\xff\xff\xff";
     [data appendBytes:message_.UTF8String length:message_.length];
     
     BOOL result = 
-    [socket sendData:data 
-         withTimeout:100 
-                 tag:42];
+    [socket sendData: data
+         withTimeout: skSocketTimeout
+                 tag: skSocketTag];
     
     NSLog(@"Sent off request (%@)", result ? @"YES" : @"NO");
     
-    [socket receiveWithTimeout:100 
-                           tag:42];
+    [socket receiveWithTimeout: skSocketTimeout
+                           tag: skSocketTag];
 }
 
 - (void) rcon:(NSString *)command_
@@ -201,20 +200,23 @@ static const char* skPrefix = "\xff\xff\xff\xff";
 }
 
 
-// This doesn't really belong here, but it's a conveniant place for now
+// This doesn't really belong here, but it's a convenient place for now
 - (NSString*) cleanURTName:(NSString*)name_
 {
     NSString* result = [name_ stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     
-    // We could do a for loop, but this is actually faster as we don't have to do any formatting
-    result = [result stringByReplacingOccurrencesOfString:@"^1" withString:@""];
-    result = [result stringByReplacingOccurrencesOfString:@"^2" withString:@""];
-    result = [result stringByReplacingOccurrencesOfString:@"^3" withString:@""];
-    result = [result stringByReplacingOccurrencesOfString:@"^4" withString:@""];
-    result = [result stringByReplacingOccurrencesOfString:@"^5" withString:@""];
-    result = [result stringByReplacingOccurrencesOfString:@"^6" withString:@""];
-    result = [result stringByReplacingOccurrencesOfString:@"^7" withString:@""];
-    result = [result stringByReplacingOccurrencesOfString:@"^8" withString:@""];
+    // Well, this is a little annoying
+    static NSArray* colorTags = nil;
+    if (nil == colorTags)
+    {
+        // cannot initialize statics with objc literals (yet?)
+        colorTags = @[ @"^0", @"^1", @"^2", @"^3", @"^4", @"^5", @"^6", @"^7", @"^8", @"^9" ];
+    }
+    
+    for (NSString* tag in colorTags)
+    {
+        result = [result stringByReplacingOccurrencesOfString:tag withString:@""];
+    }
     
     return result;
 }

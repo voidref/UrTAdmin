@@ -11,23 +11,23 @@
 #import "InlineEditTableViewCell.h"
 
 NSString* kDetailTextProperty = @"DetailText";
+NSString* kTextProperty       = @"Text";
+
+// So arbitrary...
+static const CGFloat skLeftPadding = 6.0f;
+static const CGFloat skTopPadding  = 10.0f;
 
 @implementation InlineEditTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
+    if (self)
+    {
+        // This is annoying to have to do.
+        _style = style;
     }
     return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (BOOL) shouldIndentWhileEditing
@@ -42,36 +42,76 @@ NSString* kDetailTextProperty = @"DetailText";
     
     if (YES == editing_)
     {
-        if (nil == self.editor)
-        {
-            self.editor       = [UITextField new];
-            self.editor.text  = self.detailTextLabel.text;
-
-            CGRect eframe   = self.detailTextLabel.frame;
-            eframe.size     = CGSizeMake(self.contentView.frame.size.width - eframe.origin.x,
-                                         [@"Xg" sizeWithFont: self.editor.font].height);
-            
-            self.editor.frame = eframe;
-            [self.contentView addSubview: self.editor];
-        }
-        
         self.editor.hidden          = NO;
-        self.detailTextLabel.hidden = YES;
+        
+        if (self.detailTextLabel)
+        {
+            self.detailTextLabel.hidden = YES;
+            self.editor.text = self.detailTextLabel.text;
+        }
+        else
+        {
+            self.textLabel.hidden = YES;
+            self.editor.text = self.textLabel.text;
+        }
     }
     else
     {
-        if (nil != self.editor)
+        if (nil != _editor)
         {
             // The table delegate is responsible for populating our new value
             [self.delegate inlineEditTableViewCell: self
-                                   propertyUpdated: kDetailTextProperty
+                                   propertyUpdated: self.detailTextLabel ? kDetailTextProperty : kTextProperty
                                              value: self.editor.text];
+            self.editor.hidden          = YES;
+            self.detailTextLabel.hidden = NO;
+            self.textLabel.hidden       = NO;
         }
+    }
+}
+
+- (void) createEditor
+{
+    self.editor         = [UITextField new];
+    
+    CGRect teFrame      = self.textLabel.frame;
+    
+    if (nil == self.textLabel.text)
+    {
+        teFrame = self.contentView.frame;
+        teFrame.origin = CGPointMake( skLeftPadding, skTopPadding);
+        teFrame.size   = CGSizeMake( teFrame.size.width - skLeftPadding, teFrame.size.height - skTopPadding);
         
-        self.editor.hidden          = YES;
-        self.detailTextLabel.hidden = NO;
+    }
+    else
+    {
+        self.editor.text    = self.textLabel.text;
     }
 
+    self.textLabel.text = self.editor.text;
+    
+    // This is lame, it would be nice to have access to the style
+    
+    if (self.detailTextLabel)
+    {
+        teFrame             = self.detailTextLabel.frame;
+        teFrame.size        = CGSizeMake(self.contentView.frame.size.width - teFrame.origin.x,
+                                         [@"Xg" sizeWithFont: self.editor.font].height);
+        self.editor.text    = self.detailTextLabel.text;
+    }
+    
+    self.editor.frame = teFrame;
+    [self.contentView addSubview: self.editor];
+}
+
+- (UITextField*) editor
+{
+    if (nil == _editor)
+    {
+        [self createEditor];
+    }
+    
+    return _editor;
 }
 
 @end
