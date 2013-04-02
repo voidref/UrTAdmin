@@ -146,11 +146,11 @@
     }
     else
     {
-        label = [self.conn getPlayerAtrib:paName
-                                    index:indexPath.row];
+        label = [self.conn getPlayerAttribute: paName
+                                      atIndex: indexPath.row];
         
-        detail = [self.conn getPlayerAtrib:paScore
-                                     index:indexPath.row];
+        detail = [self.conn getPlayerAttribute: paScore
+                                       atIndex: indexPath.row];
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];

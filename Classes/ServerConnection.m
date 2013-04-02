@@ -18,19 +18,15 @@ static const char*          skPrefix        = "\xff\xff\xff\xff";
 static const long           skSocketTag     = 42;
 static const NSTimeInterval skSocketTimeout = 100;
 
-@synthesize messages;
-@synthesize password;
-@synthesize cvars;
-@synthesize players;
 
 - (id) initWithDelegate: (id)delegate_
 {
     if((self = [super init]))
 	{
-        delegate = delegate_;
-        players = nil;
-        statusPoller = nil;
-        socket = nil;
+        _delegate = delegate_;
+        _players = nil;
+        _statusPoller = nil;
+        _socket = nil;
     }
     
     return self;
@@ -43,25 +39,25 @@ static const NSTimeInterval skSocketTimeout = 100;
 
 - (void) close
 {
-    delegate = nil;
-    [statusPoller invalidate];
-    statusPoller = nil;
-    [socket close];
-    socket = nil;
+    _delegate = nil;
+    [_statusPoller invalidate];
+    _statusPoller = nil;
+    [_socket close];
+    _socket = nil;
 }
 
 - (void) initNetworkCommunication:(NSString*)host_
-                             port:(uint32_t)port_ 
+                             port:(UInt16)port_ 
                          password:(NSString*)password_ 
 {
 	NSLog(@"%s %@ host: %@, port %d", __PRETTY_FUNCTION__, self, host_, port_);
 
     self.password = password_;
-    socket = [[AsyncUdpSocket alloc] initWithDelegate:self];
+    _socket = [[AsyncUdpSocket alloc] initWithDelegate:self];
     BOOL connected = 
-    [socket connectToHost: host_ 
-                 onPort: port_
-                  error: nil];
+    [_socket connectToHost: host_
+                    onPort: port_
+                     error: nil];
     
     
     NSLog(@"Setup done (%@)", connected ? @"YES" : @"NO");
@@ -72,7 +68,7 @@ static const NSTimeInterval skSocketTimeout = 100;
 
 - (void) setupPoller
 {
-	statusPoller = [NSTimer scheduledTimerWithTimeInterval:10
+	_statusPoller = [NSTimer scheduledTimerWithTimeInterval:10
 													target:self
 												  selector:@selector(getStatus:)
 												  userInfo:nil
@@ -93,13 +89,13 @@ static const NSTimeInterval skSocketTimeout = 100;
     [data appendBytes:message_.UTF8String length:message_.length];
     
     BOOL result = 
-    [socket sendData: data
+    [_socket sendData: data
          withTimeout: skSocketTimeout
                  tag: skSocketTag];
     
     NSLog(@"Sent off request (%@)", result ? @"YES" : @"NO");
     
-    [socket receiveWithTimeout: skSocketTimeout
+    [_socket receiveWithTimeout: skSocketTimeout
                            tag: skSocketTag];
 }
 
@@ -112,33 +108,15 @@ static const NSTimeInterval skSocketTimeout = 100;
 
 - (NSString*) getVar:(NSString*)name_
 {
-    NSUInteger index = [cvars indexOfObject:name_];
-    NSString* result = [self cleanURTName:[cvars objectAtIndex:index + 1]];
+    NSUInteger index = [self.cvars indexOfObject:name_];
+    NSString* result = [self cleanURTName:[self.cvars objectAtIndex:index + 1]];
     return result;
 }
 
-- (NSString*) getPlayerAtrib:(PlayerAttribute)attrib_
-                       index:(uint32_t)index_
+- (NSString*) getPlayerAttribute:(PlayerAttribute)attrib_
+                         atIndex:(NSUInteger)index_
 {
-    NSString* playerdata = [players objectAtIndex:index_];
-    
-    NSString* result;
-    
-    switch(attrib_)
-    {
-        case paName:
-            // Some names have spaced in them, so we grab the content between the quotes which go to the end of the data.
-            result = [playerdata substringFromIndex:[playerdata rangeOfString:@"\""].location];
-            result = [result substringToIndex:result.length - 1];
-            result = [self cleanURTName:result];
-            break;
-            
-        case paScore:
-            result = [[playerdata componentsSeparatedByString:@" "] objectAtIndex:0];
-            break;
-    }
-    
-    return result;    
+    return _players[index_][attrib_];   
 }
 
 
@@ -159,30 +137,44 @@ static const NSTimeInterval skSocketTimeout = 100;
     
     // Eventually put a switch statement in here using the tag to process the responses appropriately
     
-//    NSLog(@"Response: %@\n\n", response);
-    
     NSArray* parts = [response componentsSeparatedByString:@"\n"];
     
     // The first part is always which response this is to, but we should know that from our tag anyway.
     self.cvars = [[parts objectAtIndex:1] componentsSeparatedByString:@"\\"];
     
-    if (parts.count > 2) {
+    if (parts.count > 2)
+    {
         NSRange range;
         range.location = 2;
         range.length = parts.count - range.location;
-        self.players = [parts subarrayWithRange:range];
+        
+        _players = [NSMutableArray arrayWithCapacity: range.length];
+        for (NSString* playerData in [parts subarrayWithRange:range])
+        {
+            NSMutableArray* playerArray = [NSMutableArray arrayWithCapacity: (NSUInteger)paEnd];
+            NSString* name  = [playerData substringFromIndex:[playerData rangeOfString:@"\""].location];
+            name            = [name substringToIndex: name.length - 1];
+            [playerArray addObject: [self cleanURTName: name]];
+
+            [playerArray addObject: [[playerData componentsSeparatedByString:@" "] objectAtIndex:0]];
+            
+            [_players addObject: playerArray];
+        }
+        
+        [_players sortUsingComparator:^NSComparisonResult(NSArray* one_, NSArray* two_)
+         {
+             return [one_[paScore] compare:two_[paScore] options: NSNumericSearch];
+         }];
     }
     else
     {
         // No players
-        self.players = nil;
+        _players = nil;
     }
     
-//    NSLog(@"players:\n%@", players);
-    
-    if ([delegate respondsToSelector:@selector(serverDataAvailable)])
+    if ([_delegate respondsToSelector:@selector(serverDataAvailable)])
     {
-        [delegate serverDataAvailable];
+        [_delegate serverDataAvailable];
     }
     
     return YES;
@@ -219,6 +211,11 @@ static const NSTimeInterval skSocketTimeout = 100;
     }
     
     return result;
+}
+
+- (NSArray*) players
+{
+    return _players;
 }
 
 @end

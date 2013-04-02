@@ -16,20 +16,21 @@
 
 enum PlayerAttribute 
 {
-    paName,
-    paScore
+    paName = 0,
+    paScore,
+    paEnd
 };
 typedef enum PlayerAttribute PlayerAttribute;
 
-@interface ServerConnection : NSObject <AsyncUdpSocketDelegate> {
-    
-	NSMutableArray* messages;
-    AsyncUdpSocket* socket;
-    NSString*       password;
-    NSArray*        cvars;
-    NSArray*        players;
-    NSTimer*        statusPoller;
-    id              delegate;
+@interface ServerConnection : NSObject <AsyncUdpSocketDelegate>
+{
+                NSMutableArray*     _messages;
+                AsyncUdpSocket*     _socket;
+                NSString*           _password;
+                NSArray*            _cvars;
+    __strong    NSMutableArray*     _players;
+                NSTimer*            _statusPoller;
+                id                  _delegate;
 	
 }
 
@@ -37,27 +38,27 @@ typedef enum PlayerAttribute PlayerAttribute;
 @property (nonatomic, strong) NSMutableArray*   messages;
 @property (nonatomic, strong) NSString*         password;
 @property (nonatomic, strong) NSArray*          cvars;
-@property (nonatomic, strong) NSArray*          players;
+@property (nonatomic, readonly) NSArray*          players;
 
 - (id) initWithDelegate: (id)delegate_;
 - (void) dealloc;
 - (void) close;
 
-- (void) initNetworkCommunication:(NSString*)host_
-                             port:(uint32_t)port_ 
-                         password:(NSString*)password_;
+- (void) initNetworkCommunication:(NSString*)   host_
+                             port:(UInt16)      port_
+                         password:(NSString*)   password_;
 - (void) setupPoller;
-- (void) getStatus: (NSTimer*) timer_;
+- (void) getStatus: (NSTimer*)                  timer_;
 
-- (void) sendMessage:(NSString*)message_;
+- (void) sendMessage:(NSString*)                message_;
 
-- (void) rcon:(NSString*)command_;
+- (void) rcon:(NSString*)                       command_;
 
-- (NSString*) getVar:(NSString*)name_;
-- (NSString*) cleanURTName:(NSString*)name_;
+- (NSString*) getVar:(NSString*)                name_;
+- (NSString*) cleanURTName:(NSString*)          name_;
 
-- (NSString*) getPlayerAtrib:(PlayerAttribute)attrib_ 
-                       index:(uint32_t)index_;
+- (NSString*) getPlayerAttribute:(PlayerAttribute)  attrib_
+                         atIndex:(NSUInteger)       index_;
 
 /**
  * Called when the socket has received the requested datagram.
@@ -77,13 +78,19 @@ typedef enum PlayerAttribute PlayerAttribute;
  * 
  * Under normal circumstances, you simply return YES from this method.
  **/
-- (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port;
+- (BOOL)onUdpSocket:(AsyncUdpSocket *)sock
+     didReceiveData:(NSData *)data
+            withTag:(long)tag
+           fromHost:(NSString *)host
+               port:(UInt16)port;
 
 /**
  * Called if an error occurs while trying to send a datagram.
  * This could be due to a timeout, or something more serious such as the data being too large to fit in a sigle packet.
  **/
-- (void)onUdpSocket:(AsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error;
+- (void)    onUdpSocket:(AsyncUdpSocket *)sock
+  didNotSendDataWithTag:(long)tag
+             dueToError:(NSError *)error;
 
 @end
 
