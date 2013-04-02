@@ -141,15 +141,8 @@
 #pragma mark -
 #pragma mark Table view delegate
 
-
 #pragma mark -
 #pragma mark Navigation Controller delegate
-
-- (void)navigationController:(UINavigationController *)navigationController 
-      willShowViewController:(UIViewController *)viewController
-                    animated:(BOOL)animated
-{
-}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue_
                   sender:(id)sender_
@@ -158,8 +151,11 @@
     if (segue_.identifier.length > 0)
     {
         id<ServerViewController> controller = [segue_ destinationViewController];
+
+        UITableViewCell* cell = (UITableViewCell*)sender_;
+        NSInteger row = [self.tableView indexPathForCell: cell].row;
         
-        [controller setServerIndex: [self.tableView indexPathForSelectedRow].row];
+        [controller setServerIndex: row];
     }
 }
 
